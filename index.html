@@ -1,0 +1,329 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>失序症：抑欲 | 世界观情报终端</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-background: #0a0a0a;
+            --color-text: #c4f0ff;
+            --color-neon-pink: #ff00ff;
+            --color-neon-cyan: #00ffff;
+            --color-highlight: #f0f0f0;
+            --font-primary: 'Orbitron', 'Noto Sans SC', sans-serif;
+            --font-secondary: 'Noto Sans SC', sans-serif;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes neon-glow-pink {
+            from { text-shadow: 0 0 5px #ff005d, 0 0 10px #ff005d, 0 0 15px #ff005d, 0 0 20px var(--color-neon-pink), 0 0 35px var(--color-neon-pink); }
+            to { text-shadow: 0 0 10px #ff005d, 0 0 20px #ff005d, 0 0 30px #ff005d, 0 0 40px var(--color-neon-pink), 0 0 70px var(--color-neon-pink); }
+        }
+
+        @keyframes neon-glow-cyan {
+            from { text-shadow: 0 0 5px #00a2a2, 0 0 10px #00a2a2, 0 0 15px #00a2a2, 0 0 20px var(--color-neon-cyan), 0 0 35px var(--color-neon-cyan); }
+            to { text-shadow: 0 0 10px #00a2a2, 0 0 20px #00a2a2, 0 0 30px #00a2a2, 0 0 40px var(--color-neon-cyan), 0 0 70px var(--color-neon-cyan); }
+        }
+        
+        @keyframes text-glitch {
+            2%, 64% { transform: translate(2px, -2px) skew(0deg); }
+            4%, 60% { transform: translate(-2px, 2px) skew(0deg); }
+            62% { transform: skew(5deg) scale(1.05); }
+        }
+
+        @keyframes text-glitch-before {
+            0%, 15%, 45%, 100% { clip-path: inset(0 0 55% 0); }
+            5% { clip-path: inset(50% 0 10% 0); }
+            10% { clip-path: inset(80% 0 5% 0); }
+            20% { clip-path: inset(20% 0 40% 0); }
+            25% { clip-path: inset(60% 0 30% 0); }
+            30% { clip-path: inset(90% 0 2% 0); }
+            35% { clip-path: inset(40% 0 45% 0); }
+            40% { clip-path: inset(70% 0 10% 0); }
+            50% { clip-path: inset(10% 0 80% 0); }
+            55% { clip-path: inset(45% 0 50% 0); }
+        }
+
+        @keyframes text-glitch-after {
+            0%, 15%, 45%, 100% { clip-path: inset(55% 0 0 0); }
+            5% { clip-path: inset(10% 0 50% 0); }
+            10% { clip-path: inset(5% 0 80% 0); }
+            20% { clip-path: inset(40% 0 20% 0); }
+            25% { clip-path: inset(30% 0 60% 0); }
+            30% { clip-path: inset(2% 0 90% 0); }
+            35% { clip-path: inset(45% 0 40% 0); }
+            40% { clip-path: inset(10% 0 70% 0); }
+            50% { clip-path: inset(80% 0 10% 0); }
+            55% { clip-path: inset(50% 0 45% 0); }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            font-family: var(--font-secondary);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%231a1a1a" fill-opacity="0.4"><rect x="50" width="50" height="50" /><rect y="50" width="50" height="50" /></g></svg>');
+        }
+
+        body::after {
+            content: ' ';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.03));
+            background-size: 100% 3px, 5px 100%;
+            z-index: 2;
+            pointer-events: none;
+            animation: flicker 0.15s infinite;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid var(--color-neon-cyan);
+            box-shadow: 0 5px 25px -5px var(--color-neon-cyan);
+        }
+
+        .title {
+            font-family: var(--font-primary);
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 700;
+            color: var(--color-highlight);
+            text-transform: uppercase;
+            position: relative;
+            margin: 0;
+        }
+
+        .title .glitch-main {
+            animation: text-glitch 5s infinite steps(1);
+        }
+
+        .title .glitch-main::before,
+        .title .glitch-main::after {
+            content: "失序症";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-background);
+            color: var(--color-highlight);
+            overflow: hidden;
+        }
+        
+        .title .glitch-main::before {
+            animation: text-glitch-before 5s infinite steps(1);
+            color: var(--color-neon-pink);
+            z-index: -1;
+        }
+
+        .title .glitch-main::after {
+            animation: text-glitch-after 5s infinite steps(1);
+            color: var(--color-neon-cyan);
+            z-index: -2;
+        }
+
+        .subtitle {
+            font-family: var(--font-primary);
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: var(--color-neon-pink);
+            margin-top: 1rem;
+            animation: neon-glow-pink 1.5s ease-in-out infinite alternate;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--color-neon-cyan);
+            font-family: var(--font-secondary);
+            font-size: 0.9rem;
+            animation: flicker 2s infinite;
+        }
+        .scroll-down span {
+            display: block;
+            width: 2px;
+            height: 20px;
+            background: var(--color-neon-cyan);
+            margin: 10px auto 0;
+        }
+        
+        section {
+            padding: 5rem 1rem;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        h2 {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-neon-cyan);
+            text-align: center;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            animation: neon-glow-cyan 2s ease-in-out infinite alternate;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-text);
+            text-shadow: 0 0 3px rgba(196, 240, 255, 0.5);
+            margin-bottom: 1.5em;
+        }
+
+        .highlight {
+            color: var(--color-neon-pink);
+            font-weight: bold;
+        }
+
+        .quote {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.5;
+            text-align: center;
+            color: var(--color-highlight);
+            padding: 2rem;
+            border-left: 3px solid var(--color-neon-pink);
+            border-right: 3px solid var(--color-neon-pink);
+            box-shadow: 0 0 15px var(--color-neon-pink) inset;
+            margin: 3rem 0;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: rgba(196, 240, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="title">
+            <span class="glitch-main">失序症</span>
+        </h1>
+        <h2 class="subtitle">抑欲</h2>
+        <div class="scroll-down">
+            [向下滚动以接入世界观数据库]
+            <span></span>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <section id="world">
+                <h2>[新历44年]</h2>
+                <p>
+                    新历44年。旧世界的日历早已化为飞灰，时间已然埋葬名为“国家”的古老尸骸。民族主义与军国主义的亡灵，连同它们带来的两次世界大战，一同被遗忘在历史的坟场。
+                </p>
+                <p>
+                    如今，这颗星球被切割为二十一地区，由数个无所不能的巨型企业在阴影中操纵。世界政府？不过是它们挂在脸上的精致假面，一块用来遮掩垄断与剥削的华丽幕布。
+                </p>
+                <p>
+                    整个文明的脉搏，依赖于一种名为<span class="highlight">心灵运算</span>的能源科技。从接入虚拟网络的微小念头，到驱动摩天巨城的庞大生产线，万物皆由其维系。虚拟现实、人工智能、仿生人……科技的果实前所未有地丰硕，也前所未有地冰冷。
+                </p>
+                <p>
+                    在“效率至上”的铁则下，最后的枷锁被砸得粉碎。军部解体，警署、医疗、教育、媒体……一切公共服务都被明码标价，化为私有财产。最骇人的是，就连<span class="highlight">人类的身体</span>，也拥有了绝对的“私有权”，只要你愿意，甚至可以将自己的所有权出售，沦为另一个人的合法奴隶。这是一个彻底商品化的时代。
+                </p>
+                <div class="quote">
+                    “不想成为柴薪，就夺命狂奔吧。”
+                </div>
+                <p>
+                    社会的运转速率已然暴走，时代是一辆失控的赛博巨兽，将所有人裹挟其中。要么出卖灵魂与肉体，换取片刻喘息；要么就在这条没有终点的赛道上，拼命狂奔，直至燃尽自我，化为一捧雪白的灰烬。
+                </p>
+            </section>
+
+            <section id="disorder">
+                <h2>[失序症：诅咒，抑或天赋？]</h2>
+                <p>
+                    压迫与<span class="highlight">心灵运算</span>的过度开发，催生了一种“病变”——<span class="highlight">失序症</span>。患者的身体里会觉醒宛如漫画般的超常异能，但代价是，他们的心智将不可逆转地滑向名为“怪物”的深渊。伴随患者增殖的，是愈发频繁的“异常”事件，离奇的死亡与超能力犯罪，让整个社会陷入恐慌。
+                </p>
+                <p>
+                    于是，歧视的病毒开始蔓延。失序症患者被丑化为混乱的根源，成为转嫁社会矛盾的完美替罪羊。无数患者在觉醒后选择沉默，将秘密深藏心底，因为一旦暴露，他们将面对整个世界的敌意与围剿。
+                </p>
+                <p>
+                    真相被掩埋在谎言的废墟之下。<span class="highlight">失序症</span>并非新生的瘟疫，而是潜藏于人类血脉深处的古老火焰，它自古有之，只是在旧历2050年的<span class="highlight">【都灵汛雨】</span>事件后，才被迫暴露于大众视野。上层阶级对此了如指掌，却选择将它污名化为“病症”，用以掩盖那早已固化的阶级矛盾，挑起平民与患者的对立。
+                </p>
+                <p>
+                    实际上，“失序症”根本不是病。它是<span class="highlight">个体超脱凡俗的象征</span>，是才能的极致展现，是对冰冷秩序的悍然反抗，是对自由最原始、最灼热的渴望。
+                </p>
+            </section>
+
+            <section id="plot">
+                <h2>[边缘竞斗]</h2>
+                <p>
+                    新历44年。一年前爆发的“集体重度失序症”事件，将社会对患者的恐惧与排斥推向了巅峰。抗议与罢工的浪潮此起彼伏，尽管组织者被迅速“清理”，但民众心中的怒火却找到了新的宣泄口——那些被标记为“失序”的人群。
+                </p>
+                <p>
+                    就在这动荡的焦土之上，一个神秘组织策划的格斗比赛——<span class="highlight">“边缘竞斗”</span>，如病毒般席卷全球。它唯一的参赛条件，引爆了所有人的神经：<span class="highlight">参赛者必须是失序症患者</span>。
+                </p>
+                <p>
+                    更令人费解的是，世界政府与十大公司非但没有阻止，反而公开表示支持。这是秩序崩溃的前兆，还是掌权者布下的一场残忍试探？无人知晓。
+                </p>
+                <p>
+                    但一个承诺，足以让所有在绝望中挣扎的灵魂彻底疯狂：
+                </p>
+                <div class="quote">
+                    “夺得‘边缘竞斗’的冠军，你将获得你所渴望的一切。”
+                </div>
+                <p>
+                    在这场被誉为“史上最无序的格斗大赛”中，无数渴望改变命运的失序症患者，将他们的愤怒、不幸、理智与欲望，全部押上赌桌，倾注于这场盛大的开幕之战。
+                </p>
+            </section>
+
+            <section id="theme">
+                <h2>[第一季：抑欲]</h2>
+                <p>
+                    本季的所有角色，都徘徊在理智的悬崖边缘。他们是即将彻底转化为“异常”的准重度失序症患者。为了实现各自的欲望——无论是复仇、财富、自由，还是仅仅为了证明自己存在的价值——他们必须忍耐外界的压迫，以及自身异能带来的、撕裂灵魂的巨大痛苦。
+                </p>
+                <p>
+                    欢迎来到欲望的爆发点。欢迎来到……<span class="highlight">失序症</span>的世界。
+                </p>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 新历44年 [机密情报] 访问权限已授予</p>
+            <p>失序症：抑欲 - 桌面游戏世界观设定</p>
+        </footer>
+    </div>
+
+    <script>
+        // A simple script to add some dynamic feeling, can be expanded later.
+        document.addEventListener('DOMContentLoaded', (event) => {
+            console.log("SYSTEM: Terminal connection established. Displaying worldview data.");
+        });
+    </script>
+</body>
