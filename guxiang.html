@@ -1,0 +1,433 @@
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>参赛选手档案 - 顾湘</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap');
+:root {
+--bg-color: #1a1a1a;
+--panel-bg: rgba(28, 32, 30, 0.85);
+--text-primary: #e0e0e0;
+--text-secondary: #a0a0a0;
+--accent-color: #4682B4; /* 钢铁蓝，代表永生者的孤寂与坚韧 */
+--border-color: rgba(70, 130, 180, 0.3);
+--highlight-bg: rgba(70, 130, 180, 0.1);
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Noto Sans SC', sans-serif;
+background-color: var(--bg-color);
+color: var(--text-primary);
+background-image:
+radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+background-size: 20px 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+padding: 20px;
+}
+.archive-container {
+width: 100%;
+max-width: 1400px;
+height: 90vh;
+max-height: 800px;
+background: var(--panel-bg);
+border: 1px solid var(--border-color);
+border-radius: 15px;
+box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(10px);
+display: flex;
+overflow: hidden;
+}
+.character-portrait {
+flex: 0 0 40%;
+background-color: rgba(0,0,0,0.3);
+border-right: 1px solid var(--border-color);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+position: relative;
+}
+.character-info-panel {
+flex: 1;
+padding: 30px 40px;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+}
+.header-section {
+padding-bottom: 20px;
+border-bottom: 1px solid var(--border-color);
+margin-bottom: 20px;
+}
+.header-section h1 {
+font-family: 'Orbitron', sans-serif;
+font-size: 2.5rem;
+color: var(--accent-color);
+text-shadow: 0 0 10px var(--accent-color);
+margin: 0;
+}
+.header-section h2 {
+font-size: 1.2rem;
+color: var(--text-primary);
+font-weight: 400;
+opacity: 0.8;
+margin-top: 5px;
+}
+.tab-buttons {
+display: flex;
+border-bottom: 1px solid var(--border-color);
+margin-bottom: 20px;
+}
+.tab-button {
+background: none;
+border: none;
+color: var(--text-secondary);
+padding: 10px 20px;
+cursor: pointer;
+font-size: 1rem;
+position: relative;
+transition: color 0.3s ease;
+}
+.tab-button::after {
+content: '';
+position: absolute;
+bottom: -1px;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: var(--accent-color);
+transform: scaleX(0);
+transition: transform 0.3s ease;
+}
+.tab-button.active {
+color: var(--accent-color);
+}
+.tab-button.active::after {
+transform: scaleX(1);
+}
+.tab-content-container {
+flex-grow: 1;
+overflow-y: auto;
+padding-right: 15px;
+}
+.tab-content {
+display: none;
+animation: fadeIn 0.5s ease;
+}
+.tab-content.active {
+display: block;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.tab-content-container::-webkit-scrollbar {
+width: 8px;
+}
+.tab-content-container::-webkit-scrollbar-track {
+background: rgba(0,0,0,0.2);
+border-radius: 4px;
+}
+.tab-content-container::-webkit-scrollbar-thumb {
+background: var(--accent-color);
+border-radius: 4px;
+}
+.tab-content-container::-webkit-scrollbar-thumb:hover {
+background: #5a9bd8;
+}
+.info-section {
+margin-bottom: 25px;
+}
+.info-section h3 {
+color: var(--accent-color);
+font-size: 1.3rem;
+border-left: 3px solid var(--accent-color);
+padding-left: 10px;
+margin-bottom: 15px;
+}
+.info-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 15px;
+}
+.info-item {
+background: var(--highlight-bg);
+padding: 10px 15px;
+border-radius: 5px;
+border: 1px solid var(--border-color);
+}
+.info-item .label {
+display: block;
+color: var(--text-secondary);
+font-size: 0.9rem;
+margin-bottom: 3px;
+}
+.info-item .value {
+display: block;
+color: var(--text-primary);
+font-size: 1rem;
+font-weight: 500;
+}
+.info-section p {
+line-height: 1.7;
+color: var(--text-secondary);
+padding-left: 15px;
+}
+.story-content blockquote {
+border-left: 3px solid var(--accent-color);
+padding-left: 20px;
+margin: 20px 0;
+color: var(--text-secondary);
+font-style: italic;
+}
+.story-content p {
+line-height: 1.8;
+color: var(--text-primary);
+text-indent: 2em;
+margin-bottom: 1em;
+}
+.story-content p.no-indent {
+text-indent: 0;
+}
+.footer {
+text-align: center;
+padding-top: 20px;
+margin-top: auto;
+font-size: 0.8rem;
+color: var(--text-secondary);
+border-top: 1px solid var(--border-color);
+}
+.footer a {
+color: var(--accent-color);
+text-decoration: none;
+}
+.footer a:hover {
+text-decoration: underline;
+}
+@media (max-width: 900px) {
+body {
+padding: 0;
+height: auto;
+min-height: 100vh;
+}
+.archive-container {
+flex-direction: column;
+height: auto;
+max-height: none;
+border-radius: 0;
+}
+.character-portrait {
+flex: 0 0 300px;
+border-right: none;
+border-bottom: 1px solid var(--border-color);
+}
+.character-info-panel {
+padding: 20px;
+}
+.header-section h1 {
+font-size: 2rem;
+}
+}
+</style>
+</head>
+<body>
+<div class="archive-container">
+<div class="character-portrait">
+<img src="https://www.helloimg.com/i/2025/06/09/684673e68ed4c.png" alt="顾湘立绘" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+</div>
+<div class="character-info-panel">
+<div class="header-section">
+<h1>长命生灾—顾湘</h1>
+<h2>参赛选手档案 // 顾湘</h2>
+</div>
+<div class="tab-buttons">
+<button class="tab-button active" data-tab="info-content">选手个人信息</button>
+<button class="tab-button" data-tab="story-content">个人故事</button>
+</div>
+<div class="tab-content-container">
+<div id="info-content" class="tab-content active">
+<div class="info-section">
+<h3>基本信息</h3>
+<div class="info-grid">
+<div class="info-item"><span class="label">年龄</span><span class="value">？？？</span></div>
+<div class="info-item"><span class="label">性别</span><span class="value">男</span></div>
+<div class="info-item"><span class="label">身高</span><span class="value">255cm</span></div>
+<div class="info-item"><span class="label">体重</span><span class="value">156kg</span></div>
+<div class="info-item"><span class="label">出生日期</span><span class="value">？？？</span></div>
+<div class="info-item"><span class="label">血型</span><span class="value">AB</span></div>
+<div class="info-item"><span class="label">籍贯</span><span class="value">？？？</span></div>
+</div>
+</div>
+<div class="info-section">
+<h3>失序症表现: 无期形寿</h3>
+<p>患者展现出异常的自愈能力，其创伤修复速度显著快于正常水平。此外，细胞活性的提高导致患者寿命显著延长。</p>
+<p>患者的记忆能够以肉体组织的形式存储于身体中，这些组织的性状受到记忆内容的直接影响，并以抽象方式表现出特征。患者能够通过肉体组织激活并使用存储记忆中的技艺。</p>
+</div>
+<div class="info-section">
+<h3>装备: 武器袋</h3>
+<p>患者携带的武器包括但不限于汉剑、战斧、短棍、软鞭、匕首、短弓、TAC-炽式步枪、TX-47便携式冲锋枪、开罐刀-缚蝠、WV-摇滚.........根据部分武器的编号，患者并不具有购买/携带资格，极有可能是通过抢劫行为获取。</p>
+</div>
+<div class="info-section">
+<h3>个人简介</h3>
+<p>患者为一成年男性，亚洲人种，体重远超平均水平，且体态呈现佝偻状。其身体异常化表现包括赘生物生长、衍生的爪牙和口器，以及角质层甲壳的形成。患者还装配有义体，并携带总重量为35kg的多种冷热兵器，表现出对这些武器的熟练使用技巧。</p>
+<p>患者的记忆存在严重缺失，对“故乡”一词表现出强烈的应激反应。据患者所述，其参与竞赛的目的是为了寻找出生地，除此之外，关于患者的其他信息均不详。</p>
+</div>
+</div>
+<div id="story-content" class="tab-content">
+<div class="story-content">
+<p>对于人们来说，故事的开头总是无关紧要。</p>
+<p>霓虹灯牌像是森林顶部的枝杈，横七竖八的掩盖了来自星空的光芒。</p>
+<p>地域广播、私人电台、警笛、叫卖、咒骂、哭喊、枪声，构成了这座城市森林的喧嚣杂音。</p>
+<p>而现在夜色渐浓，仿佛要将一切事物都盖上黑暗的幕布，只余下身形，以及点点灯火闪烁。</p>
+<p>底层的街道如同大雨过后的腐肉，微风中夹杂着糜烂的异臭，暴走族、疯子以及流浪汉们好似蛆虫一般在上面翻滚，贪婪舔舐着散落的渣滓。</p>
+<p>而我此时也沦为了他们当中的一员，靠着冰冷的铁皮，拿着从身后垃圾桶中掏来的半瓶啤酒，百无聊赖的看着面前的一切。</p>
+<p>拙劣的武器，发红的眼睛，把自己的理智卖给酒精的躯壳们就好像他们一万年前的祖先一般，撕咬殴打，发泄着不满，绝望，顺带把自己骨骼下残余的脑髓抖出，对理性进行排异反应，吐出胃袋里的一切：蔬菜、肉块、汤汤水水，也有可能是身旁某个人的小零件。</p>
+<p>我喝了一口酒，然后就把瓶子扔到一边，瓶子咕噜噜地滚入了黑暗，空洞洞地传达着无意义的响声。我把头埋入膝间，粗糙的纱布摩擦着满是尘垢的脸。</p>
+<p>惨白的月亮下，是潮湿阴沉的土壤，上面覆盖着一洼洼淤水，我低着头，注视着一片挨着自己很近的水洼，因为它的倒影中没有路灯，没有酒鬼，什么都没有，好像在这个水洼中的世界中，所有东西都消失的一干二净，只余.........水洼。</p>
+<p>一双牛皮长靴踏碎了水洼的死寂，停在了我面前。靴子的主人毫不在意地坐在了我对面，那残留的污水还在发挥着它的余热，映出了对方模糊的轮廓。</p>
+<p>我没有去看他，并且竭尽我残余的虔诚，祈祷他能离开我的身边。但事与愿违，那些眼前的景物旋转着，刺入眼球，直直坠入神经，抵达灰色的间脑，然后将内心深处那些忘却许久的事物翻出————仅仅是他的一句话。</p>
+<p>“姓名？”</p>
+<p>风突然变得凛冽，砂石被卷起，划过我裸露的皮肤，带来一阵阵的刺痛。</p>
+<p>“……”</p>
+<p>我的手指开始不自觉地抽搐，手腕内收，大拇指与食指间的虎口顶住了那灰黑色的钢块，食指扣住了扳机。</p>
+<p>“年龄？”</p>
+<p>风捎来了血与硝烟，远处酒鬼们无意义的吼叫变成了一声声怒吼，战场的怒吼。</p>
+<p>“……”</p>
+<p>我感到窒息，仿佛有一只无形的手掐住了我的喉咙。在那水洼中，不，在那鲜血的倒映下，我看到了一张苍白、眼圈发黑、嘴角溢血的军人面庞，他与我对视。</p>
+<p>“■■？”</p>
+<p>我深吸一口气，抬起头，那个登记我名字的军官正坐在我对面，他那张血肉模糊的脸在枪炮的轰鸣声中化作了白骨骷髅。我记得，我仍记得他在死前最后一刻，还嘶哑地喊着“战死不降！”</p>
+<p>睁眼闭眼，依旧是喧嚣的街道，头顶的星体散发着阴冷的光束。远处被截停的警车只剩下残骸，熊熊烈焰中，舞台上的主角从酒鬼变成了疯子。而在我面前的，不再是满脸血污的军官，而是一个青年。</p>
+<p>他打理得干干净净，纽扣一丝不苟地扣紧，穿着一身青衫，仿佛想把自己装扮成几千年前的古人。他看见我看过来，对我露出微笑。但我已经失去了兴趣，再次闭上了眼睛。</p>
+<p>空气中弥漫着烧焦的肉味，我想这要归功于警察的英勇献身，和那些疯子的“烹饪技巧”。我已经记不得自己目睹过多少次这样的场景了。大抵上都是加减法，人类+欲望=毁灭。</p>
+<p>但这个世界上，谁又没有自己的欲望呢？我这样想着，祈祷着自己能有富裕的时间好好睡上一觉。然后继续找点东西......但具体是什么东西？是啊，是什么东西来着.......</p>
+<p>我感觉自己的大脑仿佛被无数弹片翻搅，名为时间的弹片在我的脑叶上肆意刻划，我努力回忆，却连自己的名字都想不起来。</p>
+<p>“■■。”越是用力想，脑中越是一片空白，就像一个得了阿兹海默症的老人，连昨天的记忆都丢的一干二净。而那些遗忘的东西并没有离开，它们就像滚入黑暗中的酒瓶，一遍又一遍，不厌其烦地在脑中回响，轰鸣，让人痛苦万分。</p>
+<p>深吸一口气，我睁开了眼睛，那个年轻人没有离开，他依然在我面前，甚至他的手上，还拿着我丢入黑暗的空瓶，他的脸一直没变，一直朝着我，微笑着。</p>
+<p>“■■。”他微笑着看着我，嘴中吐出的不是任何已知的语言，而是在我脑中的震荡，仿佛整个世界也随之震动起来。</p>
+<p>无名火起。</p>
+<p>我揪住他的领子，夺下那个空瓶，然后甩到了地上，摔得粉碎。那回声也终于消失了，可是那个年轻人依然在微笑。</p>
+<p>你在笑什么，我想厉声质问他，却发现自己的声音卡在喉咙里，取而代之的是哽咽，连我也不知道从何而来的眼泪从眼眶中流出，为他悲伤。</p>
+<p>他不笑了，他早已经闭上了眼睛，我站在黑色的土壤上，鲜血从他身上流下，染红了大地，我仍拽着他的衣领，我知道他一向古怪，或许这一切都是一个玩笑，下一刻他仍会睁开醒来，因为这世界上从来不缺奇迹，就像我一样。</p>
+<p>但是他仍没有睁眼，闭着眼睛，雪国的寒风刺入骨髓，岁月轮转，衣衫破烂，他化大雪待丰年。</p>
+<p>而我，仍站在这里，因为这是一个奇迹，不死的把戏，永生的诅咒。</p>
+<p>那个军官矗立在了自己家乡前，这个书生巡风归入故乡。</p>
+<p>我站在坑道里，大地上，街道旁，环顾四周，我只感觉到了一股寒冷的孤寂。我是谁？</p>
+<p>我记得自己穿梭在黑死病肆虐的腐尸堆中，记得那些身披铠甲与罗马战车并肩冲锋的战士，记得与同伴们提着煤油灯穿越灰雾弥漫的长巷，记得凡尔登高地上那血红色的花海，记得潜艇内部那沉闷的呼吸声，记得崭新出厂的义体润滑良好的丝丝声.......</p>
+<p>我审视着这双空无一物的手，紧握之后又松开，没有纸笔，没有手枪，没有任何物品能让我抓住，以唤起那些逝去的记忆。</p>
+<p>我下意识地摸索着那件棕灰色的斗篷，而隐藏在衣物下的身体让我不禁怀疑，这是否还算是一具人类的身体。</p>
+<p>畸形的肉块，锋利的骨刃，几丁质外壳下是蠕动的触须。粗糙的手从腋下伸出，拿住那把破败的手枪；光滑如玉的手掌在胸前蠕动，握着那支无墨的钢笔；满是豁口的骨刀缓缓伸展，仿佛随时准备斩向敌人……</p>
+<p>“………”是的，我记得你们，你曾经面对侵略永不妥协，硬抗毒雾而不退；你曾经拾笔扛旗呐喊，严刑拷打而不惧；你曾经扛过刀当过匪，下山杀敌且大笑………</p>
+<p>我记得你们………我是你们的墓碑。</p>
+<p>眼前的景物再次开始摇晃，嗡鸣声在夜色中回荡，最终又渐渐沉入寂静。</p>
+<p>脚下是漆黑如夜的柏油路面，面前则是火光冲天的狂欢，疯子、暴徒、酒鬼，这一切显得多么荒诞……他们中没有一个人会记得百年前、千年前的人，记住那些无私奉献的高尚者。</p>
+<p>“也许我也是个疯子。”苦涩的笑容在我嘴角蔓延，“我竟然妄想记住每一个人，每一段………”</p>
+<p>疯子总是不择手段，全力以赴地追逐自己的目标，因此他们也更容易跌倒。</p>
+<p>我倒在了永生的诅咒之下，倒在了那数以万计的人生记忆中。</p>
+<p>直到最后，我连自己要记住什么，都完全忘却。</p>
+<p>——我是他们的故乡，承载着他们的故事，那些与我并肩的高尚者，那些默默无闻的小人物。</p>
+<p>可，何处是我的故乡，谁又能记住我的故事呢？</p>
+<p>……还是说，故事的开头并不重要？</p>
+<p>低头看向那小小的水洼，那模糊的脸终于清晰可见。</p>
+<p>“你所求什么？”那道声音，温和的在我耳旁询问。</p>
+<p>“你想要什么？”那个声线，严肃地回荡在我耳边。</p>
+<p>……………………</p>
+<p>不知道多少年以前，曾有一个孩子，对死亡抱有莫大的恐惧，他目睹了无数人死后化作孤坟，无人在意，在肉体与记忆上，一同消逝。</p>
+<p>他恐惧，恐惧自己会忘记那些挚友，恐惧自己死后无人在意，无人能记住他，他的名字，他的一切。</p>
+<p>于是，命运垂怜，他获得了一份赐福和诅咒，永生与遗忘。</p>
+<p>他将自己体验的一个个人生中的好友记下，将他们的事迹流于后世，他们的武器，他们的技法也如同生前那样，与他作伴。</p>
+<p>但他快要忘记了，他正在忘记，他已经忘记了……</p>
+<p>我遗忘了所有人，一次又一次地“杀死”了他们。</p>
+<p>……在记忆的层面上，我是一个罪无可恕的杀人犯。</p>
+<p>那些呐喊，那些悲壮，那些牺牲，都被我一同埋葬，葬在了内心深处。</p>
+<p>在清醒与混乱之间徘徊，那些灵魂的归处，成了我的故乡，但我清楚地知道。</p>
+<p>那不是我的故乡。</p>
+<p>那不是我的人生。</p>
+<p>故事的开头，真的无关紧要吗？</p>
+<p>不，那个开头，是我的一生。</p>
+<p>……………………</p>
+<p>这些疯子，不，他们不是疯子，而是舞台上姿态作弄的愚人。</p>
+<p>我不知道自己的清醒还能持续多久，也不知道能否在永恒的混沌来临之前，找到自己的归宿。</p>
+<p>刀光剑影，枪火齐鸣，触手翻涌，义体闪烁。深夜的街道恢复平静后，我拾起落在地上的斗篷，轻轻拍打，重新披上。</p>
+<p>为何要夺走他们的生命？因为他们不曾珍惜现在，不曾铭记那些为和平献身的牺牲者。</p>
+<p>所以，他们不配活着。</p>
+<p>风渐渐平息，但仍有纸张被卷起，飞向天空，如同无足鸟，永不停歇。</p>
+<p>一张广告在我面前飘过，我随手抓住，被上面的字迹吸引。</p>
+<p>一场比赛……一场只有我这样的“病人”能参加的比赛，我已经嗅到了血的气息。</p>
+<p>广告下方是各个公司的认证，甚至是……世界政府的印章。</p>
+<p>“愿望吗？”我仰起头，听说在日出前仰望天空，可以看见逝去之人的面孔。</p>
+<p>但我什么也没看到。</p>
+<p>“……那就去吧？为了我自己，让我自私一次。”心脏开始悸动，愿望……故乡……我能否在那里找到自己的终点，或者是……最初的人生呢？</p>
+<p>随便找一辆未上锁的摩托车，他的主人已经成了这场狂欢的祭品之一。</p>
+<p>翻身上车，座下的机械怪物低吟，摩托把手缓缓拧转。</p>
+<p>夜幕突然破碎，几缕曦光撒在地上，伴随着警笛的尖啸，引擎的嗡鸣，朝阳奔向了顾湘。</p>
+<p>………………</p>
+<p>相传有人上山砍柴，偶遇仙人对弈，棋局未了，世间已过数十载。当他下山，却发现物是人非，旧居难寻，故乡已逝。</p>
+<p>烂柯不见，旧人西去，故乡难寻，问游子心如何？</p>
+<p>此心孤寂，无人忆我，难寻心安归处。</p>
+<p>千疮百孔，无处埋骨，不辨视听黑白。</p>
+<p>青山仍在，我骑马而来，试问樵夫归处。</p>
+<p>巨厦矗立，我驾车疾驰，探寻搏杀之所。</p>
+<p>樵夫停伐，守卫拦路，齐声问询：</p>
+<p>“远来之客，你是何人？”</p>
+<p>我四下张望，抬头答道“我名顾湘，为寻乡奔走，已有数千年。”</p>
+<p>守卫们嗤笑，拉开闸门，血腥味与欢呼声扑面而来，席卷全身。</p>
+<p>樵夫正色问到：“可得永生否？”</p>
+<p>“正是。”</p>
+<p>樵夫又问道：“永生能富可敌国？”</p>
+<p>“财富已于我无趣，不如不得。”</p>
+<p>“能否称霸天下？”</p>
+<p>“权力争夺非我愿，不如不思。”</p>
+<p>樵夫沉思，哀叹道“永生千世，你经历千万人生，世人羡你，妒你，又怎知其中酸甜苦辣。”</p>
+<p>我压低斗笠，勒马回应：“如此，我便是我。”</p>
+<p>叶公好龙，一叶障目，泰山不见，何来怅惘。</p>
+<p>樵夫指向青山，回答了最开始的问题。</p>
+<p>横幅飞上天空，露出了最原始的愿望。</p>
+<p>“一直走下去，那就是你的故乡。”</p>
+<p>“战斗到最后，这就是你的归宿。”</p>
+<p>向前，或是向上，抵达尽头，或是顶端。</p>
+<p>那扇通往最终的大门，终于向我敞开。</p>
+<p>那混乱而痛苦的心脏，再次砰砰跳动。</p>
+<p>此路可通。</p>
+<p>我眼前的一切开始重叠，翻折，但是我却感觉到了前所未有的喜悦。一切爱我的，恨我的，一张张模糊的脸都在此时浮现在我的身边，等待着我，等待着那个答案的出现。</p>
+<p>我仿佛再次回到了母亲的子宫，沉浸在那温暖的羊水之中，又像是奔跑在田野上，向着地平线尽头的草屋冲刺。</p>
+<p>为了一个愿望，我跋涉了数千年，而如今，我终于有机会终结这悲壮而又心痛的一生，以及，一切。</p>
+<p>如此便好？如此就好。</p>
+<blockquote>
+<p class="no-indent">却道是：</p>
+<p class="no-indent">顾念潇湘路几重，湘云望断意难穷。</p>
+<p class="no-indent">别愁未解心中苦，前路茫茫自感忧。</p>
+<p class="no-indent">身念旧交难再逢，志寻真我梦常留。</p>
+<p class="no-indent">失魂落魄天涯路，明朝且带寻旧乡。</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="footer">
+©失序症工作室出品｜顾湘</a>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabContents = document.querySelectorAll('.tab-content');
+tabButtons.forEach(button => {
+button.addEventListener('click', () => {
+const tabId = button.dataset.tab;
+tabButtons.forEach(btn => btn.classList.remove('active'));
+tabContents.forEach(content => content.classList.remove('active'));
+button.classList.add('active');
+document.getElementById(tabId).classList.add('active');
+});
+});
+});
+</script>
+</body>

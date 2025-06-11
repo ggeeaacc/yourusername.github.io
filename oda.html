@@ -1,0 +1,392 @@
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>参赛选手档案 - 织田真弓</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap');
+:root {
+--bg-color: #1a1a1a;
+--panel-bg: rgba(28, 28, 32, 0.85);
+--text-primary: #e0e0e0;
+--text-secondary: #a0a0a0;
+--accent-color: #B22222; /* 代表血液、荣耀与斗争的烈焰红 */
+--border-color: rgba(178, 34, 34, 0.3);
+--highlight-bg: rgba(178, 34, 34, 0.1);
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Noto Sans SC', sans-serif;
+background-color: var(--bg-color);
+color: var(--text-primary);
+background-image:
+radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+background-size: 20px 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+padding: 20px;
+}
+.archive-container {
+width: 100%;
+max-width: 1400px;
+height: 90vh;
+max-height: 800px;
+background: var(--panel-bg);
+border: 1px solid var(--border-color);
+border-radius: 15px;
+box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(10px);
+display: flex;
+overflow: hidden;
+}
+.character-portrait {
+flex: 0 0 40%;
+background-color: rgba(0,0,0,0.3);
+border-right: 1px solid var(--border-color);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+position: relative;
+}
+.character-info-panel {
+flex: 1;
+padding: 30px 40px;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+}
+.header-section {
+padding-bottom: 20px;
+border-bottom: 1px solid var(--border-color);
+margin-bottom: 20px;
+}
+.header-section h1 {
+font-family: 'Orbitron', sans-serif;
+font-size: 2.5rem;
+color: var(--accent-color);
+text-shadow: 0 0 10px var(--accent-color);
+margin: 0;
+}
+.header-section h2 {
+font-size: 1.2rem;
+color: var(--text-primary);
+font-weight: 400;
+opacity: 0.8;
+margin-top: 5px;
+}
+.tab-buttons {
+display: flex;
+border-bottom: 1px solid var(--border-color);
+margin-bottom: 20px;
+}
+.tab-button {
+background: none;
+border: none;
+color: var(--text-secondary);
+padding: 10px 20px;
+cursor: pointer;
+font-size: 1rem;
+position: relative;
+transition: color 0.3s ease;
+}
+.tab-button::after {
+content: '';
+position: absolute;
+bottom: -1px;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: var(--accent-color);
+transform: scaleX(0);
+transition: transform 0.3s ease;
+}
+.tab-button.active {
+color: var(--accent-color);
+}
+.tab-button.active::after {
+transform: scaleX(1);
+}
+.tab-content-container {
+flex-grow: 1;
+overflow-y: auto;
+padding-right: 15px;
+}
+.tab-content {
+display: none;
+animation: fadeIn 0.5s ease;
+}
+.tab-content.active {
+display: block;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.tab-content-container::-webkit-scrollbar {
+width: 8px;
+}
+.tab-content-container::-webkit-scrollbar-track {
+background: rgba(0,0,0,0.2);
+border-radius: 4px;
+}
+.tab-content-container::-webkit-scrollbar-thumb {
+background: var(--accent-color);
+border-radius: 4px;
+}
+.tab-content-container::-webkit-scrollbar-thumb:hover {
+background: #C62828;
+}
+.info-section {
+margin-bottom: 25px;
+}
+.info-section h3 {
+color: var(--accent-color);
+font-size: 1.3rem;
+border-left: 3px solid var(--accent-color);
+padding-left: 10px;
+margin-bottom: 15px;
+}
+.info-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 15px;
+}
+.info-item {
+background: var(--highlight-bg);
+padding: 10px 15px;
+border-radius: 5px;
+border: 1px solid var(--border-color);
+}
+.info-item .label {
+display: block;
+color: var(--text-secondary);
+font-size: 0.9rem;
+margin-bottom: 3px;
+}
+.info-item .value {
+display: block;
+color: var(--text-primary);
+font-size: 1rem;
+font-weight: 500;
+}
+.info-section p, .info-section ul {
+line-height: 1.7;
+color: var(--text-secondary);
+padding-left: 15px;
+}
+.info-section ul {
+list-style-type: none;
+padding-left: 0;
+}
+.info-section li {
+background: var(--highlight-bg);
+padding: 10px 15px;
+border-radius: 5px;
+margin-bottom: 10px;
+border-left: 2px solid var(--accent-color);
+line-height: 1.7;
+color: var(--text-secondary);
+}
+.story-content h4 {
+color: var(--accent-color);
+font-size: 1.1rem;
+margin-top: 20px;
+margin-bottom: 10px;
+padding-bottom: 5px;
+border-bottom: 1px solid var(--border-color);
+}
+.story-content p {
+line-height: 1.8;
+color: var(--text-primary);
+text-indent: 2em;
+margin-bottom: 1em;
+}
+.footer {
+text-align: center;
+padding-top: 20px;
+margin-top: auto;
+font-size: 0.8rem;
+color: var(--text-secondary);
+border-top: 1px solid var(--border-color);
+}
+.footer a {
+color: var(--accent-color);
+text-decoration: none;
+}
+.footer a:hover {
+text-decoration: underline;
+}
+@media (max-width: 900px) {
+body {
+padding: 0;
+height: auto;
+min-height: 100vh;
+}
+.archive-container {
+flex-direction: column;
+height: auto;
+max-height: none;
+border-radius: 0;
+}
+.character-portrait {
+flex: 0 0 300px;
+border-right: none;
+border-bottom: 1px solid var(--border-color);
+}
+.character-info-panel {
+padding: 20px;
+}
+.header-section h1 {
+font-size: 2rem;
+}
+}
+</style>
+</head>
+<body>
+<div class="archive-container">
+<div class="character-portrait">
+<img src="https://tc.z.wiki/autoupload/X4G2b9P2631Bkl7wu227EMgNcvG0i7jRGz1sTX-i-2myl5f0KlZfm6UsKj-HyTuv/20250609/Zd0I/1358X1850/%E6%82%A3%E8%80%85%E7%89%8C-%E7%BB%87%E7%94%B0%E7%9C%9F%E5%BC%93.png" alt="织田真弓立绘" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+</div>
+<div class="character-info-panel">
+<div class="header-section">
+<h1>喧哗上等—织田真弓</h1>
+<h2>参赛选手档案 // 织田真弓</h2>
+</div>
+<div class="tab-buttons">
+<button class="tab-button active" data-tab="info-content">选手个人信息</button>
+<button class="tab-button" data-tab="story-content">个人故事</button>
+</div>
+<div class="tab-content-container">
+<div id="info-content" class="tab-content active">
+<div class="info-section">
+<h3>基本信息</h3>
+<div class="info-grid">
+<div class="info-item"><span class="label">传奇名号</span><span class="value">喧哗师</span></div>
+<div class="info-item"><span class="label">年龄</span><span class="value">23岁</span></div>
+<div class="info-item"><span class="label">性别</span><span class="value">女</span></div>
+<div class="info-item"><span class="label">身高</span><span class="value">176cm</span></div>
+<div class="info-item"><span class="label">体重</span><span class="value">62kg</span></div>
+<div class="info-item"><span class="label">出生日期</span><span class="value">新历21年6月23日</span></div>
+<div class="info-item"><span class="label">血型</span><span class="value">O型</span></div>
+<div class="info-item"><span class="label">籍贯</span><span class="value">樱咲郡</span></div>
+</div>
+</div>
+<div class="info-section">
+<h3>失序症表现: 二刀一如</h3>
+<p>患者能够将不同物体进行临时性的结合，这些物体在结合期间能够正常维持各自的功能。这种结合不是永久性的，在一定时间后会自动解散。患者倾向于将其他物体与其持有的大太刀进行结合，以增强其武器的效能。在病症发动过程中，患者不仅需要付出算力，还会经历血液的损失。具体表现为血液从患者的毛孔中渗出，形成血雾，均匀覆盖在融合后的新物体表面。该病症的运行机制尚未完全明了，但观察到的现象表明，患者在病症发动过程中，其生理状态会发生显著变化，包括但不限于血液的异常流失和皮肤毛孔的异常分泌。</p>
+</div>
+<div class="info-section">
+<h3>装备: 织田长光</h3>
+<ul>
+<li>一柄大太刀，出自龙门科技之手。总长120厘米，重3.5公斤。刀身90厘米，宽度从刀尖的3.5厘米逐渐加宽至刀柄处的4.5厘米宽，厚度0.7厘米，重心位于刀柄前15厘米处，确保挥舞时的平衡与控制。刀身采用纳米强化钢打造，表面覆盖着一层暗色金属涂层，内置约束核心，能够在刀刃形成高热能量刃。刀柄结合复古皮革与碳纤维，内置生物识别，仅授权者能激活并拔出或使用织田长光。刀鞘采用硬质合金制成，表面覆盖复古皮革纹理，内置无线充能线圈，为刀身提供能量。</li>
+</ul>
+</div>
+<div class="info-section">
+<h3>个人简介</h3>
+<p>患者为一体格强健的成年女性，亚洲人种，具有明显的肌肉线条，但有一定贫血症状，出身樱咲郡织田家，为织田宗影幼女。患者战斗技艺高超，曾在樱咲郡被众多势力尊称为“喧哗师”。在询问患者参赛动机时，患者出现轻微的身体颤抖，并试图回避该问题。经过对患者背景资料的调查，可以肯定患者是为了获取十公司的注意，以便其成为织田家家主。</p>
+</div>
+</div>
+<div id="story-content" class="tab-content">
+<div class="story-content">
+<h4>织田狩的日记</h4>
+<p>————血肉与木质交织蠕动，骨骼与桌席穿插杂合，而那对眼睛，那对温柔与充满爱意的，那曾温柔而充满爱意的眼睛，那依然充盈着爱与温柔的眼睛，正在看着我，只是痛苦在其中占据了更多，我也看着那对眼睛，那痛苦也从我的眼眶流出，我看着的那眼睛已然不在眼眶之中了，我痛苦的跪下，跪在了与木质交错的，我母亲的血肉之上，血肉仍在跳动，但那跳动越来越微渺，我强迫自己看着母亲的眼睛，那温柔的眼睛却又看向了他处——那是我的妹妹，她放心不下她的幼女，即使承受着如此的苦痛。我看着那双眼睛失去了神采，我感受到那脉搏停止了跳动，我怀抱住失去意识的妹妹，从此之后，便是我们两个人了。</p>
+<h4>兄</h4>
+<p>真弓，我的幼妹，她生病了，这个消息在家族里不胫而走。我本不愿让这消息扩散，这种名为失序症的疾病在大族中并不鲜见，通常只要隐瞒，就能平安无事……但流言的蔓延速度让我感到恐慌。父亲只是处决了那个泄露消息的人，却似乎对流言的生长视而不见，任其蔓延，而我的要求如同泥牛入海。最终，所有人都知道了。</p>
+<p>母亲已经离世，那不怪真弓，那是病罢了.……现在，我所能做的，就是控制家族内部的流言，保护好真弓，无论如何，她是我的妹妹。</p>
+<h4>妹</h4>
+<p>“真弓，你......好些了吗”</p>
+<p>“......”我张了张嘴，却什么也说不出</p>
+<p>长时间的沉默，我们的思绪在胸中涌动，却困于喉口。</p>
+<p>“那……”兄长尝试着说些什么，可又像是想到什么，最终没有说出</p>
+<p>我开始低声啜泣，兄长轻抚我的头，我听到了泪水滴落的声音。</p>
+<h4>兄</h4>
+<p>我和父亲之间的争执终于以他的妥协告终，至少在表面上，关于真弓的流言得到了遏制。我也亲自处理了那些最先散播谣言的下仆，这是我和父亲唯一达成共识的地方：下仆没有资格去蔑视织田家的任何人。</p>
+<p>当我再次去看望真弓时，她的情绪似乎有所好转。</p>
+<p>那晚，那地狱般的场景再次在我脑海中重现，我看见了目睹这一切的我，他问我：“这一切是谁做的，你很清楚，不是吗？”</p>
+<p>“不……不是的，真弓她，她只是病了。”</p>
+<p>“是啊，她病了。那母亲的死，又是因为谁？”</p>
+<p>“……这不能怪她，只是那该死的失序症……”</p>
+<p>“可是，你真的完全相信这个观点吗？”</p>
+<p>我从梦中惊醒，发现自己的面孔扭曲而僵硬，汗水浸湿了衣裳。</p>
+<h4>妹</h4>
+<p>父亲第一次来看我，没有斥责也没有辱骂，只是平静地示意我跟随。我们的脚步在台阶上回响，每一步都像是踏进了更深的寒意之中。</p>
+<p>我们最终停在了一扇沉重的铁门前，他示意我进入，自己却止步于门外，仿佛那是一道他不愿跨越的界限。</p>
+<p>“真弓，”他的声音柔和，却带着一股不容抗拒的力量，“释放那股力量。”</p>
+<p>“父亲，我……我做不到……”我的声音几乎要被恐惧淹没。我永远忘不掉母亲的眼神，我知道那时候她已经死了，但我总觉得那双眼睛里泛着什么别的事物。</p>
+<p>“真弓，按照我说的做。”他的声音依旧温和，却如同冬日里的寒风，刺骨而坚定。</p>
+<p>我的身体不由自主地开始行动，仿佛被某种无形的力量驱使。地板上光晕晃动的水渍变成翻涌蠕动的血肉，我的腿有一半像春天融化的烂雪一样铺在地上。我不禁膝盖一软跪倒在地，眼泪止不住地流，嗓子里像是吞了什么粘稠恶心的事物，不停地干呕，眼泪和鼻涕、唾液、血渍混合在一起。而母亲的眼睛似乎就在哪个黑暗的角落里看着我。</p>
+<p>父亲脸上露出了满意的微笑，那笑容在家族的全家福中也曾出现过，但此刻却显得如此陌生。</p>
+<p>“很好，我的女儿，你拥有不凡的潜力，是我的骄傲。”他的话语中透露出一丝赞许，却没有一丝温情。</p>
+<p>他没有靠近，也没有放我离开，只是转身，铁门在我身后重重地合上。</p>
+<p>等我出来的时候，我才知道，这里是家族的地牢。</p>
+<p>母亲的眼中，挥之不去的是悲伤和怜悯。</p>
+<h4>兄</h4>
+<p>我将自己埋没在无休止的事务之中，仿佛劳累能够成为逃避的借口。但每当夜幕降临，空虚便如影随形。我在逃避什么？或许是我自己，或许是那些无法面对的真相。</p>
+<p>父亲的行为，我早已心知肚明……起初，我无法接受这样的残酷，于是父亲带我走进了地牢，让我亲眼目睹了那如同地狱般的场景——不再是梦境，而是活生生的现实。我无法逃避那个事实——母亲的死，的确是织田真弓所为。那温热而绵软的触感，血肉与诸物交织的景象，一切都如此相似，如此令人憎恶。</p>
+<p>我不再干涉父亲的行为，因为我明白，在这家族的阴影下，有些真相是永远无法触及阳光的。</p>
+<h4>妹</h4>
+<p>父亲开始给我下达更多的命令，我从最初的痛苦和抗拒，逐渐变得麻木不仁。</p>
+<p>我曾期盼有人能将我带离这黑暗，但回应我的只有沉默。我也曾试图向兄长求助，可是最终杳无音讯。虽然我内心充满了厌恶，但我根本无法拒绝父亲的命令。</p>
+<p>直到有一天，我在面无表情中结束了一个罪人的生命，父亲点了点头。“终于合格了，织田真弓。”他的话语中没有一丝情感的波动。</p>
+<p>我从训练中解脱出来，但这并不意味着我获得了自由，我只是从家族的地牢转移到了另一个战场，而我的任务依旧——杀戮。</p>
+<h4>兄</h4>
+<p>父亲告诉我，真弓将远赴都灵深造。我心中明白，这不过是个幌子，但至少在可预见的未来，我不必再直面真弓的存在。</p>
+<p>在送别的站台上，我的心情比预想中更加复杂。然而，所有的情绪都被我深藏，没有流露出分毫。我静静地望着她，她的目光也与我交汇，最终，我选择了低头。</p>
+<p>“再见，哥哥。”她的声音低沉而微弱，随后，她的身影消失在了人群中。我目送她离去，没有做出任何举动，也没有说出任何话语。</p>
+<h4>妹</h4>
+<p>父亲赋予我新的身份，让我作为暗中的棋子继续生存。我的任务未曾改变，只是换了个身份继续执行杀戮。随着时间的流逝，这个新身份在血腥中逐渐积累了力量。我拥有了财富，开始有人追随于我，我能做的事情越来越多，不再局限于杀戮，尽管我所拥有的一切都与杀戮息息相关，但我却沉醉于这种掌控一切的感觉。我开始主动承接杀人的委托，从单一目标到整个集团，从平民到同样拥有异能的“患者”。我杀死的人越来越多，我获得的也越来越多，直到我以“喧哗师”之名在黑道、权贵乃至更广泛的圈子中传开，直到我成为樱咲郡的四传奇之一。我无法停止自己的脚步。</p>
+<p>掌握权力的感觉如此迷人，过往的痛苦在我的灵魂中挖出了一口深不见底的枯井，而每一次的获得，都像是有人将清泉倾倒入井中。即便清泉最终会被无底的枯井所吞噬，但那水流过的感觉，那瞬间填满空虚的满足，我无法忘怀，也绝不会放手。</p>
+<h4>兄</h4>
+<p>家主之争的序幕已经拉开，每个渴望权力的兄弟都在暗中布局，算计，甚至不惜背叛。我也被卷入这场无情的斗争，尽管我对此并不热衷。这场痛苦的欢宴在现任家主发话之前，绝不会停止。我感到疲惫，因为我并不擅长这些阴谋诡计……但在这场斗争中，一旦停下脚步，就意味着失败，甚至可能是死亡。我不敢，也不能停下。</p>
+<h4>妹</h4>
+<p>父亲接见了我，并赐给我一把长刀，是他曾在龙门科技定制的大太刀，虽然略有过时，但却象征着织田家的荣誉。随后，他向我透露了家主之争的消息，并询问我是否愿意加入这场权力的角逐。我的回答是肯定的，在这场争端中，我能获得足够的东西来满足自我。</p>
+<p>父亲告诉我，为了证明自己，我必须杀死一名竞争者。</p>
+<p>不知为何，我的脑海中浮现出兄长的形象，他的面容在我心中已经变得模糊。</p>
+<p>在地牢中度过的漫长岁月里，我未曾见过他；</p>
+<p>在我离开家族的时候，他的面容也未曾出现在我的视线中；</p>
+<p>在我以“喧哗师”的身份行走江湖时，我只知道他同样在权力的漩涡中挣扎。</p>
+<p>也许，我已经有了选择。</p>
+<h4>兄</h4>
+<p>这个夜晚，我躺在床上，辗转反侧，难以成眠。是因为这场权力漩涡消耗了我太多的精力吗？还是因为那些无法逃避的过去？我想起了母亲和妹妹，那些温馨而又遥远的时光，如今已无法回头。</p>
+<p>在半梦半醒之间，我仿佛看到了真弓，她的身影在血雾中若隐若现，血液从她手中的刀尖滴落，发出滴答、滴答的声音。</p>
+<p>真的是真弓啊，她来杀我了。</p>
+<p>我所最后见到的，只是一道刀光。他的心里会想些什么，又想要做什么，一切都在这一刻戛然而止。</p>
+<p>生命的最后，最终也只是一具尸体而已，与其他同样死在刀下的人没有区别。</p>
+<p>她看着兄长的头颅，笑声低低的响起，但若是有人能够看见她，那么一定会惊叹于她扭曲的表情。</p>
+<h4>父</h4>
+<p>真弓的选择让我有些意外，我未曾预料到她会做出这样的决定。我擦拭着这柄长刀上的血迹，那是我孩子的血，而挥动它的正是我的另一个孩子。我感到一丝悲哀，但弱者本就应该被淘汰。这正是织田家不断发展、累积、最终变得强盛的原因。擦净血迹后，我将刀递给了她。</p>
+<p>我看着刀，又看着她，长长地叹息自我的口中响起。</p>
+<h4>妹</h4>
+<p>权力的角逐已接近尾声，家族中的候选人逐渐减少，最终只剩下我们三人。父亲出人意料地阻止了进一步的直接对抗，转而要求我们为家族带来实际的利益。我的哥哥和姐姐，他们自幼接受的是正统的继承人教育，而我，除了战斗和杀戮，对于管理一窍不通。我也终于明白，自从我患上那病症之后，家主从未真正将我视为候选人。</p>
+<p>我别无选择，也不愿就此放弃。我渴望一个更大的舞台、一个能让我施展才华的地方——边缘竞斗，这可能是我最后的机会。如果能够取得胜利，我将有可能获得那些大公司的关注，这是我无法抗拒的诱惑。我放不下，也不能放下。我必须取得胜利，掌握权力……只有这样，我才能感受到自己是真切的在活着。</p>
+</div>
+</div>
+</div>
+<div class="footer">
+©失序症工作室出品｜织田真弓</a>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabContents = document.querySelectorAll('.tab-content');
+tabButtons.forEach(button => {
+button.addEventListener('click', () => {
+const tabId = button.dataset.tab;
+tabButtons.forEach(btn => btn.classList.remove('active'));
+tabContents.forEach(content => content.classList.remove('active'));
+button.classList.add('active');
+document.getElementById(tabId).classList.add('active');
+});
+});
+});
+</script>
+</body>

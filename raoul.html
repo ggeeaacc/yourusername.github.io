@@ -1,0 +1,383 @@
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>参赛选手档案 - 拉乌尔</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap');
+:root {
+--bg-color: #1a1a1a;
+--panel-bg: rgba(28, 28, 32, 0.85);
+--text-primary: #e0e0e0;
+--text-secondary: #a0a0a0;
+--accent-color: #ff8c00;
+--border-color: rgba(255, 140, 0, 0.3);
+--highlight-bg: rgba(255, 140, 0, 0.1);
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Noto Sans SC', sans-serif;
+background-color: var(--bg-color);
+color: var(--text-primary);
+background-image:
+radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+background-size: 20px 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+padding: 20px;
+}
+.archive-container {
+width: 100%;
+max-width: 1400px;
+height: 90vh;
+max-height: 800px;
+background: var(--panel-bg);
+border: 1px solid var(--border-color);
+border-radius: 15px;
+box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(10px);
+display: flex;
+overflow: hidden;
+}
+.character-portrait {
+flex: 0 0 40%;
+background-color: rgba(0,0,0,0.3);
+border-right: 1px solid var(--border-color);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+position: relative;
+}
+.character-info-panel {
+flex: 1;
+padding: 30px 40px;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+}
+.header-section {
+padding-bottom: 20px;
+border-bottom: 1px solid var(--border-color);
+margin-bottom: 20px;
+}
+.header-section h1 {
+font-family: 'Orbitron', sans-serif;
+font-size: 2.5rem;
+color: var(--accent-color);
+text-shadow: 0 0 10px var(--accent-color);
+margin: 0;
+}
+.header-section h2 {
+font-size: 1.2rem;
+color: var(--text-primary);
+font-weight: 400;
+opacity: 0.8;
+margin-top: 5px;
+}
+.tab-buttons {
+display: flex;
+border-bottom: 1px solid var(--border-color);
+margin-bottom: 20px;
+}
+.tab-button {
+background: none;
+border: none;
+color: var(--text-secondary);
+padding: 10px 20px;
+cursor: pointer;
+font-size: 1rem;
+position: relative;
+transition: color 0.3s ease;
+}
+.tab-button::after {
+content: '';
+position: absolute;
+bottom: -1px;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: var(--accent-color);
+transform: scaleX(0);
+transition: transform 0.3s ease;
+}
+.tab-button.active {
+color: var(--accent-color);
+}
+.tab-button.active::after {
+transform: scaleX(1);
+}
+.tab-content-container {
+flex-grow: 1;
+overflow-y: auto;
+padding-right: 15px;
+}
+.tab-content {
+display: none;
+animation: fadeIn 0.5s ease;
+}
+.tab-content.active {
+display: block;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.tab-content-container::-webkit-scrollbar {
+width: 8px;
+}
+.tab-content-container::-webkit-scrollbar-track {
+background: rgba(0,0,0,0.2);
+border-radius: 4px;
+}
+.tab-content-container::-webkit-scrollbar-thumb {
+background: var(--accent-color);
+border-radius: 4px;
+}
+.tab-content-container::-webkit-scrollbar-thumb:hover {
+background: #ffae42;
+}
+.info-section {
+margin-bottom: 25px;
+}
+.info-section h3 {
+color: var(--accent-color);
+font-size: 1.3rem;
+border-left: 3px solid var(--accent-color);
+padding-left: 10px;
+margin-bottom: 15px;
+}
+.info-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 15px;
+}
+.info-item {
+background: var(--highlight-bg);
+padding: 10px 15px;
+border-radius: 5px;
+border: 1px solid var(--border-color);
+}
+.info-item .label {
+display: block;
+color: var(--text-secondary);
+font-size: 0.9rem;
+margin-bottom: 3px;
+}
+.info-item .value {
+display: block;
+color: var(--text-primary);
+font-size: 1rem;
+font-weight: 500;
+}
+.info-section p, .info-section ul {
+line-height: 1.7;
+color: var(--text-secondary);
+padding-left: 15px;
+}
+.info-section ul {
+list-style-type: none;
+padding-left: 0;
+}
+.info-section li {
+background: var(--highlight-bg);
+padding: 10px 15px;
+border-radius: 5px;
+margin-bottom: 10px;
+border-left: 2px solid var(--accent-color);
+}
+.appendix {
+margin-top: 15px;
+padding: 15px;
+background: rgba(0,0,0,0.2);
+border-radius: 5px;
+border: 1px solid rgba(255,255,255,0.1);
+font-style: italic;
+}
+.appendix strong {
+color: var(--accent-color);
+font-style: normal;
+}
+.story-content h4 {
+color: var(--accent-color);
+font-size: 1.2rem;
+margin-top: 30px;
+margin-bottom: 15px;
+font-weight: 700;
+padding-bottom: 5px;
+border-bottom: 1px dashed var(--border-color);
+}
+.story-content h4:first-child {
+margin-top: 0;
+}
+.story-content p {
+line-height: 1.8;
+color: var(--text-primary);
+text-indent: 2em;
+margin-bottom: 1em;
+}
+.footer {
+text-align: center;
+padding-top: 20px;
+margin-top: auto;
+font-size: 0.8rem;
+color: var(--text-secondary);
+border-top: 1px solid var(--border-color);
+}
+.footer a {
+color: var(--accent-color);
+text-decoration: none;
+}
+.footer a:hover {
+text-decoration: underline;
+}
+@media (max-width: 900px) {
+body {
+padding: 0;
+height: auto;
+min-height: 100vh;
+}
+.archive-container {
+flex-direction: column;
+height: auto;
+max-height: none;
+border-radius: 0;
+}
+.character-portrait {
+flex: 0 0 300px;
+border-right: none;
+border-bottom: 1px solid var(--border-color);
+}
+.character-info-panel {
+padding: 20px;
+}
+.header-section h1 {
+font-size: 2rem;
+}
+}
+</style>
+</head>
+<body>
+<div class="archive-container">
+<div class="character-portrait">
+<img src="https://www.helloimg.com/i/2025/06/09/68466878736ef.png" alt="拉乌尔立绘" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+</div>
+<div class="character-info-panel">
+<div class="header-section">
+<h1>狂艺九揽—拉乌尔</h1>
+<h2>参赛选手档案 // 拉乌尔</h2>
+</div>
+<div class="tab-buttons">
+<button class="tab-button active" data-tab="info-content">选手个人信息</button>
+<button class="tab-button" data-tab="story-content">个人故事</button>
+</div>
+<div class="tab-content-container">
+<div id="info-content" class="tab-content active">
+<div class="info-section">
+<h3>基本信息</h3>
+<div class="info-grid">
+<div class="info-item"><span class="label">年龄</span><span class="value">31</span></div>
+<div class="info-item"><span class="label">性别</span><span class="value">男</span></div>
+<div class="info-item"><span class="label">身高</span><span class="value">174cm</span></div>
+<div class="info-item"><span class="label">体重</span><span class="value">66kg</span></div>
+<div class="info-item"><span class="label">出生日期</span><span class="value">新历13年7月12日</span></div>
+<div class="info-item"><span class="label">血型</span><span class="value">B</span></div>
+<div class="info-item"><span class="label">籍贯</span><span class="value">多恩德斯</span></div>
+</div>
+</div>
+<div class="info-section">
+<h3>失序症表现: 融蜡剧场</h3>
+<p>该病症表现出可控性，患者可以凭借主观思想来控制病症的表现形式，在通常情况下，该病症作用于对象的感官系统，使对象的视觉听觉触觉嗅觉味觉系统失效&lt;资料覆写&gt;经过患者配合进行的实验，证实其并非通过影响中枢神经，目前猜测为通过电信号的影响，使对象对外界的刺激无反应或做出错误的反应。</p>
+<p>在患者主观控制下，病症可以进入一种活跃状态，在该状态下患者身边将会生成较为粘稠的透明高温液体，在温度降低时凝固为白色低硬度固体，物理性质与化学性质近似于石蜡。这种液体会组合为虚构的角色形象，患者可以控制这些形象进行攻击，被攻击对象将认定自己受到了某种攻击并深信不疑。</p>
+<div class="appendix"><strong>附录：</strong>在实验中，实验对象声称被巨龙的龙息攻击，体检结果表明身体没有异常，但对象在三日后死于败血症及并发症导致的感染。</div>
+</div>
+<div class="info-section">
+<h3>装备：演出戏服</h3>
+<ul>
+<li>一件风格糅杂的暗灰色不对称风衣，L码，采用耐磨耐候的合成纤维面料，前襟左侧较长，右侧较短，袖口一侧为开放式，另一侧为闭合式，口袋的开口也呈现出斜向与水平的对比。</li>
+</ul>
+</div>
+<div class="info-section">
+<h3>个人简介</h3>
+<p>患者是一名稍显瘦弱的男性，高加索人种，留有黑色长发，前职业为演员，有显著精神问题，表现为对自身身份的错误认知，请接触者对其当前身份进行了解并配合其的扮演，这种情况下患者可以进行沟通，并愿意进行配合。</p>
+<p>患者身体的非裸露部分的皮肤存在大量创口，多张人体面部皮肤组织被缝线固定在皮肤上，从检测结果分析这些皮肤组织被缝合的时间跨度很大，距今最近的是一张男性面孔，切面处有组织液渗出，另多张面孔因损坏严重而无法辨别，呈现出腐坏与脱水的外在表现。</p>
+</div>
+</div>
+<div id="story-content" class="tab-content">
+<div class="story-content">
+<p>风将关紧的窗户蛮横地扯开一道缝隙，簇拥着挤入房间。</p>
+<p>深秋的风裹挟着冰冷的雨丝，自霓虹森林的间隙中呼啸而过，从硅晶与金属勾勒的城市线条中挤出，发出百年前掠过真正林海时那般的悲鸣。在这阴沉的夜晚，月光匿迹，霓虹晦暗。</p>
+<p>“嚓——”</p>
+<p>一束橙色的暖光在房间中骤然跃起。在那白得发烫的火星照耀下，浓稠的黑暗被瞬间稀释，万物显露出灰蒙蒙的轮廓。燃烧的火柴梗很快抵达中段，在它彻底燃尽前，那只捏着它的手终于摸索到一支蜡烛。于是，昏黄却温暖的橙光填充了整个房间，被门缝渗入的微风拨弄着，在墙上投下一连串影影绰绰的黑影。</p>
+<p>我轻轻舒出一口气，正了正头上的帽檐，胸口的警官证在跳动的烛光下，无序地向四周折射着细碎的光点。我抬眼看向面前的女人，微微点了点头。</p>
+<h4>&lt;母亲&gt;</h4>
+<p>“抱歉，警官大人……我知道我已经反复打扰过您很多次了，但我还是觉得，您应该好好去调查一下这件事。我儿子他……他绝不可能做出那种事的，我太了解他了……”</p>
+<p>眼前的妇人垂下眼睑，尽管烛火跳跃，难以分辨细节，但依然能看出她脸上精致的淡妆。那妆容虽已被抽噎的泪水打乱，却仍能窥见她年轻时的美艳。只可惜，再厚的粉底也抵挡不住时间刻下的痕迹。</p>
+<p>“您知道吗，警官大人？我总记得他帮邻居老奶奶搬东西的情景。他力气不大，但那份热心和坚持，让我无比骄傲。他总是那么乐于助人，无论在学校还是社区，他总是第一个伸出援手的人。还有，还有啊，在之前的圣诞节……”</p>
+<p>这些话语经典到令人感到乏味，妇人仍在絮絮叨叨，而我的眉头早已紧锁。我轻轻晃了晃脑袋，示意她可以停止这场令人昏昏欲睡的独白了。</p>
+<p>文学中被赋予“血浓于水”温情的狼，在现实里，可从不惮于咬断旅人的喉管。</p>
+<h4>&lt;记者&gt;</h4>
+<p>暗淡的火苗挣扎了一下，最终熄灭为一点暗红色的余烬。在同样的位置，另一根蜡烛被固定在尚未凝固的蜡油上。随着那双手再次划燃火柴，斑驳的桌面重又被照亮。这张堆满卷宗的桌面送走了一代代主人，也见证了一名名罪犯。</p>
+<p>“是的，我就是最开始写那篇报道的记者。哪怕是今天，我也可以确信，我没有半点夸大其词。整个影史上，从未有过如此炽烈的小丑角色！那角色就像一团静默焖烧的烈火，你能清晰地感受到，在那平静之下，濒临迸发的每一缕疯狂。”</p>
+<p>记者滔滔不绝地宣泄着对那个人的赞叹。或许是职业习惯，他讲述时加入了大量夸张的肢体动作，手臂带起的风一次次拨动着跳跃的火芯。</p>
+<p>“可是后来……那篇否定他的稿件，也是出自我手。我当时……我当时真的是疯了！不，不是疯了，我也不知道是什么心情。我对他充满了期待，你可能完全无法体会我的那种感情！”他语气高昂，手舞足蹈，我大概能体会他口中的那种心情。</p>
+<p>“是他背叛了我们！他自己没能做出他理应做到的最完美的演绎！‘昔日的后起之秀无法再次重拾角色的魔力’——你看过那篇报道的，是吧？哈哈哈！他把一名战士，一名君主，活生生演绎成了一个弄臣，一个小丑！他对不起任何人对他的期待，他再也无法赢回任何人的心了！”</p>
+<p>他高声地、近乎癫狂地发表着评论。在漫长的表演之后，他终于气喘吁吁地坐回座位，双手捂住脸，发出了前所未有的、断断续续的抽噎声。</p>
+<p>“我没有错……我是那样地爱着他……是他自己，是他自己毁了自己。”</p>
+<h4>&lt;医生&gt;</h4>
+<p>那是一种消毒液挥发后留下的、稀薄而刺鼻的味道。医院工作者的身上总萦绕着这种气味，在他们自己都未曾察觉时，周遭的环境早已永远地改变了他们。</p>
+<p>“您好，警官先生。我是第一次接受机关的审讯，如果我有什么需要注意或是有错误的行为，希望您可以及时告知我。”他的手无意识地翻弄着一本小册子，那是警局准备的宣传册，科普着一些简单的法律法规，不过，基本没什么人会真的拿起来翻阅。</p>
+<p>“我一直将苏格拉底誓言奉若圭臬，今天我才明白，原来法律是驾驭在誓言之上的。为病人保守秘密，难道只是一句轻飘飘的空话吗？啊，抱歉警官先生，我没有别的意思。你也知道，医学生的第一课就是背诵并宣誓这些，与其说是信仰崩塌，更多的只是一种……简单的惊讶罢了。”他还在翻弄那本小册子，从心理学角度看，这应该是为了转移紧张注意力的典型表现。</p>
+<p>“我看过他的作品，是他亲口向我推荐的。最开始，他在我的科室里只是一个普通的失眠患者。在一个我值班的夜晚，他向我推荐了那部电影。警官先生，我不是那种热衷电影的人，但确实，那天晚上他改变了我对电影的看法。但或许是心理作用吧，从那天起，明明同样是因为失眠而萎靡不振的他，在我眼里却平添了一种癫狂的感觉。这让我有些恐惧和不安，我居然会因为一部艺术作品，而对他人强加不存在的印象。”“嗯？警官您问我对他的态度有没有变化？没有。我确实接诊过一些名人，但那些人给我的感觉只有厌恶。我要花费更多精力去应付那些根本无法沟通的粉丝，还有他们身上那种或多或少的优越感。但他没有。除了那部电影，他几乎不提及自己的过去，也几乎没有人因为他在病房里而打扰我的工作。”</p>
+<p>医生轻轻叹了口气，无神的双眼仰望着天花板。那里什么都没有，仅有斑驳的油漆与晃动的焰影。“后来，他的病情变得更加严重了。在那个夜晚的三点半，一阵怪异的喘息声和重物摩擦地板的声音，让我去确认了一下走廊的监控。”医生坐在椅子上的身体不自然地扭动了一下，换了个看似更舒适的姿势。“我在镜头中……看到了一张惨白的脸。他就那么直勾勾地看着摄像头的位置。我知道他不是在看我，但我当时甚至连用手指点击关闭屏幕的力量都没有。他就那么拖着一个橡胶人体标本，在走廊里来回踱步，低声发笑。”这名可怜的医生手忙脚乱地比画着，显然，仅仅是回忆这件事就让他痛苦不堪。我点了点头，示意可以跳过这段描述。</p>
+<p>“后来，他就转去了别的科室。但因为他，我也患上了一段时间的失眠。剩下的事情，也都是听其他人提起的了。听说他因为一起事故导致皮肤烧伤，大概……转去了更好的医院吧。”</p>
+<p>他得知的消息并不全面，不过也无须告诉他，让他的记忆仅仅停留在诡异的神经质就好，而不是一根沸腾爆燃的扭曲烛芯。</p>
+<h4>&lt;主角&gt;</h4>
+<p>“没有太熟悉，只是一个剧组的同事罢了。”</p>
+<p>新的蜡烛被固定在桌台上，对面的男人伸出手，借着昏黄的火光点燃了一支卷烟。“我是看了他的作品才考入影视学院的。因为他，我始终相信荧幕能够比枯燥的文字传递更多的信念。那是一种魔力，只要他站在那里，哪怕没有任何动作与表情……我不太会描述那种感觉，大概就是老前辈们喜欢说的那种，‘连他的每根头发丝里都有戏’。”</p>
+<p>他弹了弹烟灰，但那根烟他一口未抽，似乎只是习惯性地点燃一支，感受它在指间缓慢燃烧。“当我知道自己将要和崇拜的人进入同一个剧组时，我激动得好几个晚上都没睡好。我准备了无数问题想要请教他，我认真构思了每一个动作，只为给他留下一个好印象。但他……什么都没告诉我。或者说，现在回想起来，他确实什么都不知道。”</p>
+<p>“他是那样的有天赋，以至于他根本无法回答我的问题，因为那些对他来说，就像呼吸一样是本能。但那天赋对他而言，也是一种枷锁。他再也摆脱不了最初那个完美的角色。无论他付出多少努力，人们看他，都只看得到那一个影子。哪怕他塑造了再多的形象，出演了再多的作品，人们也只会说：他已经江郎才尽了。”</p>
+<p>卷烟烧到了手指夹住的位置，发出细微的“滋滋”声，他却始终无动于衷，无神的眼眶中仿佛沉入了久远的过往。“他开始一个人自言自语，在各种场合嘟囔着台本，抱着并不存在的舞伴起舞……那时我终于意识到，他疯了。或许，他早就疯了。不是从失败开始，而是从成功的那一刻，他就已经疯了。我去过那场火灾的现场，那个不大的出租屋里，堆满了各种各样的廉价服装与道具。”</p>
+<p>“他想成为任何人，但唯独不想成为他自己。”</p>
+<h4>&lt;■■&gt;</h4>
+<p>“所以，他得出了结论。正是因为那张与生俱来的面孔，才让他一直深陷在那个泥潭里。”他继续说着，在桌面上捻灭了烟蒂，从椅子上缓缓站起身。</p>
+<p>“那只要脸变化了，不就可以在其他的角色上获得成功了吗？不，那太麻烦了。只需要……获得那些角色的脸，就会更加容易，更加自然。”</p>
+<p>晦暗跳动的烛火中，无数张面孔凝视着警官。跃动的光影让那些面孔变得斑驳陆离，恍惚间，便能看到或喜或怒，或涕或悲的万千神色。</p>
+<p>“所以在那个夜里。”“所以在那个■里。”</p>
+<p>“他拿着一把斧子。”“我拿着一把■■。”</p>
+<p>“砍断了我的头颅。”“砍下了他的■■。”</p>
+<p>“他一点一点，小心地剥下了我的脸皮，将剩下的尸体丢进了河里。”“我将那张面具缝在了我的■■，有了他，我就能胜任■■的主角。”</p>
+<p>“慢慢地，我嗅得到自己腐烂的气息。”“太少了，还远远不够，还需要■■。”</p>
+<p>“现在，我们可以登上那个最大的舞台了。”“现在，我们可以登上那个最大的■■了。”</p>
+<p>在跳动的烛光中，那个被绳索捆扎在椅子上的“我”徒劳地挣扎着。无论“我”如何甩动脑袋，都无法甩脱口中的毛巾，只能发出无意义的呜咽与喘息。眼瞳中，仅能倒映出那只手掰下桌上的蜡烛。触感，也仅能感受到滚烫的蜡油从头顶淋下，流入眼眶。最终，仅存的听觉，听到了金属摩擦的锐响，以及窗外呼啸的、永不停歇的风。</p>
+<p>现在，我们有了新的同伴。</p>
+</div>
+</div>
+</div>
+<div class="footer">
+©失序症工作室出品｜拉乌尔</a>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabContents = document.querySelectorAll('.tab-content');
+tabButtons.forEach(button => {
+button.addEventListener('click', () => {
+const tabId = button.dataset.tab;
+tabButtons.forEach(btn => btn.classList.remove('active'));
+tabContents.forEach(content => content.classList.remove('active'));
+button.classList.add('active');
+document.getElementById(tabId).classList.add('active');
+});
+});
+});
+</script>
+</body>

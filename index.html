@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>失序症：抑欲 | 世界观情报终端</title>
+    <title>失序症：抑欲 | 主控情报终端</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
@@ -220,11 +220,79 @@
             font-style: italic;
         }
 
+        .navigation-section {
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .nav-category h3 {
+            font-family: var(--font-primary);
+            font-size: 2rem;
+            color: var(--color-highlight);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--color-neon-pink);
+        }
+        
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .nav-button {
+            font-family: var(--font-primary);
+            font-size: 1.2rem;
+            color: var(--color-neon-cyan);
+            background-color: transparent;
+            border: 2px solid var(--color-neon-cyan);
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px -5px var(--color-neon-cyan);
+        }
+
+        .nav-button:hover {
+            color: var(--color-background);
+            background-color: var(--color-neon-cyan);
+            box-shadow: 0 0 20px var(--color-neon-cyan);
+        }
+
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%) rotate(45deg);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .nav-button:hover::before {
+            width: 0;
+            height: 0;
+        }
+
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 2rem 2rem;
             font-size: 0.8rem;
             color: rgba(196, 240, 255, 0.5);
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
         }
     </style>
 </head>
@@ -242,6 +310,7 @@
     </header>
 
     <div class="container">
+        <!-- Worldview Section -->
         <main>
             <section id="world">
                 <h2>[新历44年]</h2>
@@ -313,17 +382,39 @@
                 </p>
             </section>
         </main>
+
+        <!-- Navigation Section -->
+        <section class="navigation-section" id="navigation">
+            <h2>[数据终端]</h2>
+            <div class="nav-grid">
+                <div class="nav-category">
+                    <h3>// 规则手册</h3>
+                    <a href="rules.html" target="_blank" class="nav-button">接入规则数据库</a>
+                </div>
+                <div class="nav-category">
+                    <h3>// 参赛者档案</h3>
+                    <div class="button-grid">
+                        <a href="gain.html" target="_blank" class="nav-button">盖恩·卢卡斯</a>
+                        <a href="raoul.html" target="_blank" class="nav-button">拉乌尔</a>
+                        <a href="guxiang.html" target="_blank" class="nav-button">顾湘</a>
+                        <a href="harvey.html" target="_blank" class="nav-button">哈维·拉马克</a>
+                        <a href="moran.html" target="_blank" class="nav-button">墨染</a>
+                        <a href="yunmeng.html" target="_blank" class="nav-button">云梦</a>
+                        <a href="oda.html" target="_blank" class="nav-button">织田真弓</a>
+                    </div>
+                </div>
+            </div>
+        </section>
         
         <footer>
-            <p>&copy; 新历44年 [机密情报] 访问权限已授予</p>
+            <p>&copy; 新历44年 [主控情报终端] 访问权限已授予</p>
             <p>失序症：抑欲 - 桌面游戏世界观设定</p>
         </footer>
     </div>
 
     <script>
-        // A simple script to add some dynamic feeling, can be expanded later.
         document.addEventListener('DOMContentLoaded', (event) => {
-            console.log("SYSTEM: Terminal connection established. Displaying worldview data.");
+            console.log("SYSTEM: Mainframe connection established. Displaying primary data index.");
         });
     </script>
 </body>

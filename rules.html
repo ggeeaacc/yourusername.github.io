@@ -1,0 +1,386 @@
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《失序症：抑欲》线上规则说明书</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap');
+:root {
+--bg-color: #0d0d1a;
+--primary-glow: #00ffff;
+--secondary-glow: #ff00ff;
+--text-color: #e0e0e0;
+--text-muted: #a0a0b0;
+--panel-bg: rgba(10, 25, 47, 0.85);
+--border-color: rgba(0, 255, 255, 0.3);
+--highlight-bg: rgba(0, 255, 255, 0.1);
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+html {
+scroll-behavior: smooth;
+}
+body {
+font-family: 'Noto Sans SC', sans-serif;
+background-color: var(--bg-color);
+color: var(--text-color);
+line-height: 1.8;
+background-image:
+radial-gradient(var(--border-color) 1px, transparent 1px),
+radial-gradient(var(--border-color) 1px, var(--bg-color) 1px);
+background-size: 40px 40px;
+background-position: 0 0, 20px 20px;
+}
+.container {
+max-width: 1000px;
+margin: 0 auto;
+padding: 2rem 1.5rem;
+}
+.main-panel {
+background: var(--panel-bg);
+border: 1px solid var(--border-color);
+border-radius: 10px;
+padding: 2rem;
+backdrop-filter: blur(10px);
+box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+position: relative;
+overflow: hidden;
+}
+.main-panel::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(0deg, transparent 98%, var(--primary-glow) 98%);
+background-size: 100% 50px;
+animation: scanline 8s linear infinite;
+pointer-events: none;
+opacity: 0.2;
+}
+@keyframes scanline {
+0% { background-position: 0 0; }
+100% { background-position: 0 100%; }
+}
+h1, h2, h3, h4 {
+font-family: 'Orbitron', sans-serif;
+text-shadow: 0 0 5px var(--primary-glow), 0 0 10px var(--primary-glow);
+margin-bottom: 1rem;
+}
+h1 {
+font-size: 2.8em;
+color: #ffffff;
+text-align: center;
+letter-spacing: 2px;
+margin-bottom: 0.5rem;
+}
+h2 {
+font-size: 1.2em;
+color: var(--text-muted);
+text-align: center;
+margin-bottom: 2.5rem;
+font-family: 'Noto Sans SC', sans-serif;
+font-weight: 300;
+text-shadow: none;
+}
+h3 {
+font-size: 1.8em;
+color: var(--primary-glow);
+border-bottom: 2px solid var(--border-color);
+padding-bottom: 0.5rem;
+margin-top: 2.5rem;
+}
+h4 {
+font-size: 1.3em;
+color: var(--secondary-glow);
+text-shadow: 0 0 5px var(--secondary-glow), 0 0 10px var(--secondary-glow);
+margin-top: 2rem;
+margin-bottom: 1rem;
+}
+p {
+margin-bottom: 1rem;
+}
+a {
+color: var(--secondary-glow);
+text-decoration: none;
+transition: color 0.3s, text-shadow 0.3s;
+}
+a:hover {
+color: #ffffff;
+text-shadow: 0 0 8px var(--secondary-glow);
+}
+ul, ol {
+padding-left: 25px;
+margin-bottom: 1rem;
+}
+li {
+margin-bottom: 0.5rem;
+}
+li::marker {
+color: var(--primary-glow);
+}
+code {
+background-color: var(--highlight-bg);
+color: var(--primary-glow);
+padding: 0.2em 0.4em;
+border-radius: 4px;
+font-family: 'Orbitron', monospace;
+font-size: 0.9em;
+border: 1px solid var(--border-color);
+}
+.toc {
+background: rgba(10, 25, 47, 0.95);
+border: 1px solid var(--border-color);
+border-radius: 8px;
+padding: 1.5rem;
+margin-bottom: 2.5rem;
+}
+.toc h3 {
+margin-top: 0;
+font-size: 1.5em;
+text-align: center;
+border: none;
+}
+.toc ul {
+list-style: none;
+padding: 0;
+columns: 2;
+-webkit-columns: 2;
+-moz-columns: 2;
+}
+.toc li {
+padding: 0.3rem 0;
+}
+.toc a {
+font-weight: 400;
+color: var(--text-color);
+}
+.toc a:hover {
+color: var(--primary-glow);
+}
+.intro-box {
+border: 1px dashed var(--border-color);
+padding: 1.5rem;
+margin-top: 1rem;
+border-radius: 8px;
+background: var(--highlight-bg);
+}
+.card-type {
+background: rgba(0, 0, 0, 0.3);
+border-left: 4px solid var(--secondary-glow);
+padding: 1rem 1.5rem;
+margin-bottom: 1rem;
+border-radius: 0 8px 8px 0;
+}
+.card-type-title {
+font-weight: 700;
+color: var(--secondary-glow);
+font-size: 1.1em;
+}
+.table-container {
+overflow-x: auto;
+margin-top: 1.5rem;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+background: var(--highlight-bg);
+border: 1px solid var(--border-color);
+}
+th, td {
+border: 1px solid var(--border-color);
+padding: 0.8rem 1rem;
+text-align: left;
+}
+th {
+background-color: rgba(0, 255, 255, 0.2);
+color: var(--primary-glow);
+font-family: 'Orbitron', sans-serif;
+}
+.footer {
+text-align: center;
+margin-top: 3rem;
+padding-top: 1.5rem;
+border-top: 1px solid var(--border-color);
+font-size: 0.9em;
+color: var(--text-muted);
+}
+@media (max-width: 768px) {
+.toc ul {
+columns: 1;
+-webkit-columns: 1;
+-moz-columns: 1;
+}
+h1 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+.container { padding: 1.5rem 1rem; }
+.main-panel { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="main-panel">
+<h1>《失序症：抑欲》</h1>
+<h2>线上规则说明书</h2>
+<nav class="toc">
+<h3>目录</h3>
+<ul>
+<li><a href="#section-1">一、简要介绍</a></li>
+<li><a href="#section-2">二、配置</a></li>
+<li><a href="#section-3">三、游戏方式</a></li>
+<li><a href="#section-4">四、变种规则</a></li>
+<li><a href="#section-5">五、数值规则</a></li>
+<li><a href="#section-6">六、卡牌词条</a></li>
+<li><a href="#section-7">七、机制结算</a></li>
+</ul>
+</nav>
+<section id="section-1">
+<h3>一、简要介绍</h3>
+<div class="intro-box">
+<p>潜入《失序症：抑欲》的赛博朋克世界——霓虹之下，秩序早已荡然无存！你，一名身怀异能却在无尽压迫中艰难求生的超能力者，眼前唯一的曙光，便是由神秘组织掀起的残酷对决“边缘竞斗”。</p>
+<p>在这款惊心动魄的1v1/2v2对战桌游中，规则被压缩到了极致：要么，赌上一切，将所有竞争者踩在脚下，登上那染血的冠军宝座；要么，就彻底沉沦，化为他人登顶路上冰冷的垫脚石！</p>
+<p>你，准备好在这场生存游戏中，为自己的欲望而战了吗？</p>
+</div>
+</section>
+<section id="section-2">
+<h3>二、配置</h3>
+<p>游戏分为正常版与小盒版，核心卡牌类型如下：</p>
+<div class="card-type">
+<p><strong class="card-type-title">患者牌 (Patient Card):</strong> 玩家扮演的角色，包含独特的<code>失序症能力</code>和一套专属牌组。</p>
+</div>
+<div class="card-type">
+<p><strong class="card-type-title">欲望牌 (Desire Card):</strong> 代表玩家选择的牌组流派，提供额外的战斗和反抗牌。</p>
+</div>
+<div class="card-type">
+<p><strong class="card-type-title">暴走牌 (Rampage Card):</strong> 患者的最终手段，在<code>压力值</code>达到6时解锁，拥有强大的<code>异常值</code>。</p>
+</div>
+<div class="card-type">
+<p><strong class="card-type-title">战斗牌 (Battle Card):</strong> 在自己行动阶段打出，用于攻击和触发效果。</p>
+</div>
+<div class="card-type">
+<p><strong class="card-type-title">反抗牌 (Resistance Card):</strong> 在对手行动阶段用于防御和应对。</p>
+</div>
+<div class="card-type">
+<p><strong class="card-type-title">加成牌 (Buff Card):</strong> 通过<code>战术效果“加成”</code>转化，永久增益战斗或反抗牌。</p>
+</div>
+<div class="card-type">
+<p><strong class="card-type-title">战术牌 (Tactic Card):</strong> 提供多种战术选择，如<code>定神</code>、<code>新招</code>、<code>来战</code>等。</p>
+</div>
+<h4>核心物件</h4>
+<ul>
+<li><strong>生命滑动条:</strong> 记录玩家生命，上限30点，归零则败北。</li>
+<li><strong>压力滑动条:</strong> 记录玩家压力，上限10点，达到10点则败北。</li>
+<li><strong>标记物:</strong> 用于追踪游戏中的特殊状态，如<code>粹化标记物</code>、<code>余音标记物</code>。</li>
+</ul>
+</section>
+<section id="section-3">
+<h3>三、游戏方式</h3>
+<h4>1. 游戏准备</h4>
+<ol>
+<li>将患者牌和欲望牌分别洗混，组成牌库。</li>
+<li>玩家轮流抽取2张患者牌和3张欲望牌。</li>
+<li>各自选择1张患者牌和2张欲望牌，并展示。</li>
+<li>根据所选牌组，构建自己的牌库、抑制区（暴走牌）和战术区。</li>
+<li>先手玩家抽4张牌，后手抽5张。可以有条件地重抽初始手牌。</li>
+</ol>
+<h4>2. 回合流程</h4>
+<p>游戏按回合进行，每回合分为双方的行动阶段。每个行动阶段包含三个子阶段：</p>
+<ol>
+<li><strong>准备阶段:</strong> 必须使用一次战术牌效果（<code>定神</code>、<code>新招</code>、<code>来战</code>、<code>加成</code>）。若选择<code>来战</code>，则进入乱斗阶段。</li>
+<li><strong>乱斗阶段:</strong> 双方进行核心战斗，称为<code>交战</code>。每个乱斗阶段只能进行一次<code>交战</code>。</li>
+<li><strong>结束阶段:</strong> 结算回合结束效果，手牌弃至6张。</li>
+</ol>
+<h4>3. 核心机制：交战 (Engage)</h4>
+<p><code>交战</code>是游戏的主要互动方式，分为两个小阶段：</p>
+<ul>
+<li><strong>气势阶段:</strong> 攻击方打出战斗牌，防御方可选择打出反抗牌。结算带有<code>气势</code>词条的效果。</li>
+<li><strong>交战后阶段:</strong> 对比双方牌的数值。
+<ul>
+<li>若伤害值 > 防御值，造成差值伤害。</li>
+<li>结算胜负奖励：胜方获得1点压力值并可转化加成牌；败方获得2点压力值。平局各获1点压力。</li>
+<li>结算带有<code>交战后</code>词条的效果。</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="section-4">
+<h3>四、变种规则</h3>
+<h4>1. 半构筑规则</h4>
+<p>提供更具策略性的牌库构筑体验。玩家通过轮流选择的方式获得患者牌和欲望牌，并从中自由组合8张欲望牌组的卡牌来构建牌库。</p>
+<h4>2. 2v2规则</h4>
+<p>四名玩家组成两队进行对抗。核心区别在于：</p>
+<ul>
+<li><strong>共用生命与牌库:</strong> 每个队伍共用30点生命和一个由双方牌组构成的团队牌库。</li>
+<li><strong>独立压力值:</strong> 每个玩家独立计算自己的压力值。</li>
+<li><strong>支援 (Support):</strong> 队友可以跳过自己的下一行动阶段，来支援当前交战的队友，叠加双方卡牌数值。</li>
+<li><strong>交换 (Swap):</strong> 在结束阶段，玩家可选择不抽牌，而是与队友交换1张手牌。</li>
+</ul>
+</section>
+<section id="section-5">
+<h3>五、数值规则</h3>
+<p>游戏中的关键数值会影响战局的走向。</p>
+<ul>
+<li><strong>生命:</strong> 初始30，归零则输。</li>
+<li><strong>伤害值/防御值:</strong> 战斗/反抗牌的基础属性。</li>
+<li><strong>异常值:</strong> 暴走牌的专属属性，用于判定伤害。</li>
+<li><strong>压力值:</strong> 核心成长机制，初始0，上限10。压力越高，卡牌越强，但达到10点会直接输掉游戏。</li>
+</ul>
+<h4>压力阈值增益</h4>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>压力值</th>
+<th>效果增益</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>2</code></td>
+<td>交战牌的伤害值/防御值+1。</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>交战牌的伤害值/防御值+2，获得“气势：<code>连招</code>”。</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>交战牌的数值/异常值+2，获得“<code>技高一筹</code>：对交战对象造成数值一半的伤害”。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>注意：</strong>到达新阈值后，前一个阈值的增益不再生效。</p>
+</section>
+<section id="section-6">
+<h3>六、卡牌词条</h3>
+<p>卡牌上的关键词决定了其特殊效果的发动时机。</p>
+<ul>
+<li><code>气势</code>: 在气势阶段发动的效果。</li>
+<li><code>交战后</code>: 在交战后阶段发动的效果。</li>
+<li><code>技高一筹</code>: 在交战获胜时发动的效果。</li>
+<li><code>选择</code>: 从多个效果中选择1个发动。</li>
+<li><code>压力值x</code>: 当前有x点压力值才会发动的效果。</li>
+<li><code>连招</code>: 可以再打出一张同类型手牌，数值相加，但第二张牌不触发效果。此词条不能叠加。</li>
+</ul>
+</section>
+<section id="section-7">
+<h3>七、一些机制的结算</h3>
+<h4>额外交战</h4>
+<p>由特定卡牌效果触发，不消耗乱斗阶段的交战次数。触发方打出什么类型的牌，另一方只能用相反类型应对。每名玩家每回合最多触发两次额外交战。</p>
+<h4>抽取x张牌</h4>
+<p>若无特殊说明，一律从自己的牌库顶抽取x张牌加入手牌。</p>
+<h4>康效 (Counter Effect)</h4>
+<p>用于阻止或无效化对手效果。当场上存在<code>康效</code>时，玩家可以在对手发动效果时立即选择是否触发，打断其结算流程。</p>
+</section>
+<footer class="footer">
+<p>©失序症工作室出品｜超爽二人对战策略桌游</a></p>
+</footer>
+</div>
+</div>
+</body>

@@ -1,0 +1,358 @@
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>参赛选手档案 - 哈维·拉马克</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap');
+:root {
+--bg-color: #1a1a1a;
+--panel-bg: rgba(28, 32, 30, 0.85);
+--text-primary: #e0e0e0;
+--text-secondary: #a0a0a0;
+--accent-color: #00A9A5; /* 冰冷、病态的生物科技青色 */
+--border-color: rgba(0, 169, 165, 0.3);
+--highlight-bg: rgba(0, 169, 165, 0.1);
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Noto Sans SC', sans-serif;
+background-color: var(--bg-color);
+color: var(--text-primary);
+background-image:
+radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+background-size: 20px 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+padding: 20px;
+}
+.archive-container {
+width: 100%;
+max-width: 1400px;
+height: 90vh;
+max-height: 800px;
+background: var(--panel-bg);
+border: 1px solid var(--border-color);
+border-radius: 15px;
+box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(10px);
+display: flex;
+overflow: hidden;
+}
+.character-portrait {
+flex: 0 0 40%;
+background-color: rgba(0,0,0,0.3);
+border-right: 1px solid var(--border-color);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+position: relative;
+}
+.character-info-panel {
+flex: 1;
+padding: 30px 40px;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+}
+.header-section {
+padding-bottom: 20px;
+border-bottom: 1px solid var(--border-color);
+margin-bottom: 20px;
+}
+.header-section h1 {
+font-family: 'Orbitron', sans-serif;
+font-size: 2.5rem;
+color: var(--accent-color);
+text-shadow: 0 0 10px var(--accent-color);
+margin: 0;
+}
+.header-section h2 {
+font-size: 1.2rem;
+color: var(--text-primary);
+font-weight: 400;
+opacity: 0.8;
+margin-top: 5px;
+}
+.tab-buttons {
+display: flex;
+border-bottom: 1px solid var(--border-color);
+margin-bottom: 20px;
+}
+.tab-button {
+background: none;
+border: none;
+color: var(--text-secondary);
+padding: 10px 20px;
+cursor: pointer;
+font-size: 1rem;
+position: relative;
+transition: color 0.3s ease;
+}
+.tab-button::after {
+content: '';
+position: absolute;
+bottom: -1px;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: var(--accent-color);
+transform: scaleX(0);
+transition: transform 0.3s ease;
+}
+.tab-button.active {
+color: var(--accent-color);
+}
+.tab-button.active::after {
+transform: scaleX(1);
+}
+.tab-content-container {
+flex-grow: 1;
+overflow-y: auto;
+padding-right: 15px;
+}
+.tab-content {
+display: none;
+animation: fadeIn 0.5s ease;
+}
+.tab-content.active {
+display: block;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.tab-content-container::-webkit-scrollbar {
+width: 8px;
+}
+.tab-content-container::-webkit-scrollbar-track {
+background: rgba(0,0,0,0.2);
+border-radius: 4px;
+}
+.tab-content-container::-webkit-scrollbar-thumb {
+background: var(--accent-color);
+border-radius: 4px;
+}
+.tab-content-container::-webkit-scrollbar-thumb:hover {
+background: #00BFB8;
+}
+.info-section {
+margin-bottom: 25px;
+}
+.info-section h3 {
+color: var(--accent-color);
+font-size: 1.3rem;
+border-left: 3px solid var(--accent-color);
+padding-left: 10px;
+margin-bottom: 15px;
+}
+.info-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 15px;
+}
+.info-item {
+background: var(--highlight-bg);
+padding: 10px 15px;
+border-radius: 5px;
+border: 1px solid var(--border-color);
+}
+.info-item .label {
+display: block;
+color: var(--text-secondary);
+font-size: 0.9rem;
+margin-bottom: 3px;
+}
+.info-item .value {
+display: block;
+color: var(--text-primary);
+font-size: 1rem;
+font-weight: 500;
+}
+.info-section p, .info-section ul {
+line-height: 1.7;
+color: var(--text-secondary);
+padding-left: 15px;
+}
+.info-section ul {
+list-style-type: none;
+padding-left: 0;
+}
+.info-section li {
+background: var(--highlight-bg);
+padding: 10px 15px;
+border-radius: 5px;
+margin-bottom: 10px;
+border-left: 2px solid var(--accent-color);
+}
+.story-content p {
+line-height: 1.8;
+color: var(--text-primary);
+text-indent: 2em;
+margin-bottom: 1em;
+}
+.footer {
+text-align: center;
+padding-top: 20px;
+margin-top: auto;
+font-size: 0.8rem;
+color: var(--text-secondary);
+border-top: 1px solid var(--border-color);
+}
+.footer a {
+color: var(--accent-color);
+text-decoration: none;
+}
+.footer a:hover {
+text-decoration: underline;
+}
+@media (max-width: 900px) {
+body {
+padding: 0;
+height: auto;
+min-height: 100vh;
+}
+.archive-container {
+flex-direction: column;
+height: auto;
+max-height: none;
+border-radius: 0;
+}
+.character-portrait {
+flex: 0 0 300px;
+border-right: none;
+border-bottom: 1px solid var(--border-color);
+}
+.character-info-panel {
+padding: 20px;
+}
+.header-section h1 {
+font-size: 2rem;
+}
+}
+</style>
+</head>
+<body>
+<div class="archive-container">
+<div class="character-portrait">
+<img src="https://www.helloimg.com/i/2025/06/09/6846911d4c304.png" alt="哈维·拉马克立绘" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+</div>
+<div class="character-info-panel">
+<div class="header-section">
+<h1>渎界秽体—哈维·拉马克</h1>
+<h2>参赛选手档案 // 哈维·拉马克</h2>
+</div>
+<div class="tab-buttons">
+<button class="tab-button active" data-tab="info-content">选手个人信息</button>
+<button class="tab-button" data-tab="story-content">个人故事</button>
+</div>
+<div class="tab-content-container">
+<div id="info-content" class="tab-content active">
+<div class="info-section">
+<h3>基本信息</h3>
+<div class="info-grid">
+<div class="info-item"><span class="label">年龄</span><span class="value">26岁</span></div>
+<div class="info-item"><span class="label">性别</span><span class="value">男</span></div>
+<div class="info-item"><span class="label">身高</span><span class="value">188cm</span></div>
+<div class="info-item"><span class="label">体重</span><span class="value">77kg</span></div>
+<div class="info-item"><span class="label">出生日期</span><span class="value">新历18年12月25日</span></div>
+<div class="info-item"><span class="label">血型</span><span class="value">O型</span></div>
+<div class="info-item"><span class="label">籍贯</span><span class="value">都灵</span></div>
+</div>
+</div>
+<div class="info-section">
+<h3>失序症表现: 纯粹世界</h3>
+<p>患者表现为全身性生物结构异常进化，其生理机制为通过体外循环泵与自发生物聚合管路建立开放式代谢系统，实现血液与外界催化剂的强制混合重组，引发定向器官异化；已观测到前胸生成白瓷化格栅状过滤器官（可提纯吸入气体中有害物质）、双臂皮下增生高强度陶瓷化骨板、脊柱表面形成自主蠕动的营养吸收触须群（可通过接触有机物直接分解吸收养分）；能力激活时体表浮现青黑色纹路，伴随体内激素水平异常飙升，可短暂强化肌肉爆发力至常人三倍以上。</p>
+</div>
+<div class="info-section">
+<h3>装备：第一泵机/第二泵机</h3>
+<ul>
+<li>两套非法改装的生物-机械共生系统，核心为腰挂式体外循环泵，通过七根生物聚合管路与主要脏器直连，可实现实时血液净化与催化剂灌注。患者另一侧身体同样携带一腰挂式体外循环泵，暂不明确该泵机用处。</li>
+</ul>
+</div>
+<div class="info-section">
+<h3>个人简介</h3>
+<p>患者为一成年男性，高加索人种，身形瘦长，肌肉密度异常高于标准值，体表温度恒定于41.2℃，虹膜呈现病理性金属光泽灰；失序症引发全身17处器官异化，包括心脏表面覆盖钙化生物装甲、消化系统被高效触须群替代。是金牌体验的基因工程科研究员，曾被誉为最年轻的基因工程天才。依照其参与“边缘竞斗”时宣称“缔造纯淬世界”的言论，及实验室查获的《人类基因缺陷图谱》手稿，判定核心动机为通过极端进化论实现物种层面的强制性生物革新。</p>
+</div>
+</div>
+<div id="story-content" class="tab-content">
+<div class="story-content">
+<p>我深吸一口气，冰凉的空气涌入肺腔，带着都灵标志性的味道——一种由高效空气净化系统过滤后，依旧顽固残留的消毒水气味，以及一丝若有若无、源自城市底层管道系统深处的有机物腐败气息。我，哈维·拉马克，此刻正站在我那间被仪器、培养皿和散乱数据线占据的实验室中央。光滑如镜的实验室舱壁里映出我此刻的模样：深棕色的自来卷长发不羁地垂落肩头，遮住了部分额角，或许显得有些颓唐，但我无心理会。那件穿了不知多久的白大褂，早已被各种化学试剂染成了斑驳的抽象画，其中几处暗红色的喷溅痕迹尤为显眼——那是某些高浓度血红蛋白溶液实验的“勋章”，在不知情者眼中，或许会引发不安的联想。</p>
+<p>我习惯性地调整了一下覆盖住口鼻的黑色骑行口罩，它像第二层皮肤般贴合，隔绝的与其说是空气中的污染物，不如说是我与这个“未完成”的世界之间那道无形的屏障。衣物之下，数根柔韧而坚韧的生物聚合管路沿着我的脊柱和肋骨蜿蜒，如同寄生藤蔓般紧贴着皮肤，最终汇入腰间一个扁平的、发出低频嗡鸣的体外循环泵。这是我的秘密，我的进化，也是我的诅咒——或者说，是这个停滞不前世界的诅咒。</p>
+<p>“拉马克博士，这份关于新型基因编辑酶的报告需要您过目。”一个怯生生的声音从门口传来，是新来的实习生，莉莉安。她总是用那种看怪物似的眼神偷偷打量我，仿佛我下一秒就会从白大褂下掏出什么骇人的东西。</p>
+<p>我转过身，脸上尽量挤出一个我认为还算温和的笑容：“放桌上吧，莉莉安。对了，上次我让你观察的A组菌株培养基，有什么异常变化吗？”</p>
+<p>“啊……有的，博士，”她像是被惊到的小鹿，连忙将报告放在离我最远的桌角，“A组菌株……它们，它们好像长出了一些……一些之前没有的……结构，颜色也变得更深了。”</p>
+<p>“很好。”我点点头，心中掠过一丝难以察觉的愉悦。那是我偷偷加入了一点“催化剂”的样本，看来效果不错。</p>
+<p>莉莉安如蒙大赦般逃离了我的实验室。我走到那份报告前，却没有立刻翻看，而是看向窗外。这座城市，被称为进步之城的都灵，在科技的粉饰下光鲜亮丽，摩天楼宇如冰冷的钢铁森林般刺破铅灰色的天空，空中轨道车穿梭不息，巨大的全息广告牌闪烁着光怪陆离的色彩，兜售着永恒的青春和虚假的幸福。科技，无疑是这个时代的主旋律，它赋予了人类前所未有的能力，延长了寿命，克服了许多曾经的绝症。但在这光鲜的外壳之下，人类的本质，似乎并未有多少改变。</p>
+<p>愚昧、贪婪、恐惧、短视……这些深植于基因的“缺陷”，如同病毒般在人群中蔓延。所谓的进化，在过去的数万年间，几乎陷入停滞。我们用科技为自己打造了一个越来越舒适的温床，却也扼杀了物种自我革新的原始动力。</p>
+<p>我对神学那一套同样嗤之以鼻，如果真有一个全知全能的造物主，祂为何会设计出如此漏洞百出、需要不断打补丁的“杰作”？不，生命本身就是一场宏大的化学实验，而人类，无疑是其中一个算不上成功的实验品。我们的DNA充满了冗余和缺陷，我们的生理结构脆弱不堪，我们的认知更是被原始的欲望和恐惧所禁锢。</p>
+<p>每当想到这些，一种混杂着失望、愤怒与使命感的复杂情绪便会攫住我。我渴望颠覆，渴望重塑，渴望将生命从这泥沼中拽出，赋予其真正的“纯粹”与“完美”。而这一切的滥觞，源于三年前那场几乎将我彻底摧毁，却又让我得以新生的“事故”。</p>
+<p>那是一个雨夜，我正在进行一项关于极端环境下细胞适应性的研究。实验对象是一种深海微生物，它们能在极端的压力和温度下存活。我试图分离并改良它们的某些基因片段，以期增强人体细胞的韧性。实验进行到关键时刻，离心机的一个转子突然失衡，高速旋转的样品管碎裂，里面高度浓缩的微生物悬液和一种我秘密合成的强效催化剂混合物，如同爆开的烟花般溅射开来。</p>
+<p>我记得当时脸上、手臂上，甚至口腔里都沾染了那些冰凉粘稠的液体。起初只是皮肤有些刺痛和麻痒，我并没有太在意，毕竟在实验室里，这种小意外司空见惯。我草草清洗了一下，便继续整理混乱的实验台。</p>
+<p>但很快，情况开始失控。</p>
+<p>先是剧烈的恶心感，我冲到水槽边呕吐，吐出来的却不是胃容物，而是一些散发着诡异荧光的粘液。紧接着，是深入骨髓的寒冷和灼热交替袭来，我的身体像一个失控的反应釜，内部发生着剧烈的化学反应。我能清晰地感觉到我的细胞在尖叫、在撕裂、在以一种前所未有的速度重组。</p>
+<p>我跌跌撞撞地爬到观察镜前，镜中的景象让我永生难忘。我的皮肤下，开始浮现出一条条淡青色的、如同血管般凸起的痕迹，它们扭动着，生长着，仿佛有生命一般。它们逐渐变粗，颜色加深，最终形成了数根光滑的、半透明的管路，紧贴着我的皮肤，从胸口、腋下、腹股沟等地方钻出，像新生的藤蔓一样探索着外界。</p>
+<p>剧痛让我几乎昏厥，但我强迫自己保持清醒。我看到那些管路的末端，开始分泌出一种粘稠的液体，一部分滴落在地上，发出“滋滋”的腐蚀声，另一部分则开始在我身体表面凝固，形成一些不规则的、闪烁着金属光泽的薄片。</p>
+<p>“啊……啊啊啊——！”我忍不住发出野兽般的嘶吼，那不是纯粹的痛苦，更夹杂着一种莫名的兴奋和期待。我感觉到一种全新的力量正在我的体内苏醒。</p>
+<p>就在那时，我体外的一个小型备用泵机——原本是用于实验中精确输送液体的——似乎受到了某种感召，它自行启动了！那些从我身体里生长出来的管路，如同拥有自主意识一般，精准地连接到了泵机的接口上。泵机开始工作，将我体内的血液抽出，通过那些新生的管路，与空气中、实验台上残留的那些催化剂、微生物碎片混合，然后……再泵回我的身体！</p>
+<p>这是一个疯狂的体外循环系统！我的血液在体外进行着一场前所未有的“净化”和“改造”。每一次循环，我都感觉自己的身体在发生着翻天覆地的变化。那些原本只是皮肤下凸起的管路，变得更加坚韧，表面甚至开始出现类似角质层的保护结构。而我的某些部位，比如手臂和腿部，开始不受控制地增生出一些奇异的组织——它们不是肿瘤，更像是一种……器官的雏形。一些肉块如同含苞待放的花朵般鼓胀起来，表面覆盖着一层白瓷般光滑的外壳，闪烁着冰冷的光泽。这些新生的“器官”形态各异，有的像格栅，有的像滤网，有的则布满了细密的孔洞。</p>
+<p>我能感觉到，我的身体正在以一种匪夷所思的方式进行“迭代进化”。那些曾经困扰我的小毛病，比如轻微的近视和偶尔的关节痛，都在这剧烈的改造中消失了。取而代之的，是一种前所未有的清晰感和力量感。我的感官变得异常敏锐，能听到隔壁房间细微的电流声，能闻到空气中不同化学成分的精确比例。</p>
+<p>这就是“失序症”吗？那些政府宣传中语焉不详，民间传说中令人恐惧的病变？不，这他妈的不是病！这是进化！这是神迹！是生命在挣脱了那可笑的自然选择枷锁后，展现出的真正潜力！</p>
+<p>我颤抖着伸出手，看着手臂上那些新生的、覆盖着白瓷外壳的扭曲结构。它们并不丑陋，反而有一种……异样的美感。一种超越了凡俗审美的、属于更高层次生命形态的美。</p>
+<p>“纯淬世界……”我喃喃自语，一个词组如同神启般出现在我的脑海中。是的，这就是我的能力，我的使命——将这个污浊、低效、充满缺陷的世界，彻底“粹化”，引领所有生命走向真正的完美。</p>
+<p>从那以后，我开始秘密研究自己的身体，研究这种名为“粹化”的能力。我发现，我可以通过意志控制那些体外的泵机和管路，精确调控血液中各种物质的浓度，甚至主动引导身体某些部位发生定向的进化。我可以让我的皮肤变得像陶瓷一样坚硬，也可以让我的肌肉在短时间内爆发出惊人的力量。那些新生的扭曲器官，每一个都有其独特的功能，有的能高效过滤毒素，有的能分泌强效的激素，有的甚至能……吸收并转化周围环境中的能量。</p>
+<p>我不再是那个手无缚鸡之力的研究员哈维·拉马克。我是新时代的先驱，是进化的使者，是“渎界秽体”——一个行走在人间，准备颠覆旧秩序的神祇。</p>
+<p>当然，这种力量也给我带来了麻烦。我必须小心翼翼地隐藏自己身体的异变，那些管路和泵机，以及偶尔失控增生的组织，都需要用宽大的衣物和特制的束具来掩盖。世界政府对失序症患者的态度虽然不像民间那样充满歧视和恐惧，但也绝谈不上友好。他们将我们视为潜在的威胁，需要被监管和控制。</p>
+<p>可笑！他们根本不明白，他们正在试图阻止的是历史的必然进程！</p>
+<p>我开始更加频繁地进行那些“出格”的实验。起初是小白鼠，然后是兔子、猫、狗……在我的“粹化”下，它们展现出了各种令人惊叹的变异。有的生长出了坚硬的甲壳，有的拥有了超越物种极限的再生能力，有的甚至……展现出了初步的智慧。每一次成功的“粹化”，都让我更加坚信自己的理念。</p>
+<p>我渴望将我的“福音”传播出去，但我也明白，这个愚昧的世界还没有准备好接受它。他们会恐惧，会抗拒，会试图消灭我，就像对待所有超越他们理解范围的事物一样。</p>
+<p>我的实验室成了我的避难所，也是我的神殿。在这里，我可以暂时卸下伪装，与我的“作品”们坦诚相对。那些连接在我身上的管路，不再是冰冷的器械，而是我延伸的触手，是我感知和改造这个世界的工具。泵机规律的嗡鸣，如同我心脏的第二个节拍，为我注入源源不断的生命力。</p>
+<p>我抚摸着胸口，那里，一块新生的、覆盖着白瓷外壳的格栅状器官正在微微搏动，过滤着进入我肺部的空气，将其转化为最纯净的能量。这种感觉……妙不可言。</p>
+<p>但仅仅在实验室里进行这些小打小闹，已经无法满足我日益膨胀的野心。我需要一个更大的舞台，一个能让全世界都见证我“伟大事业”的舞台。我需要权力，需要影响力，需要让那些愚昧的凡人低下他们高傲的头颅，接受来自新神的“恩赐”。</p>
+<p>就在我为此苦恼，甚至开始考虑一些更激进的手段时，一个消息，如同一道划破黑暗的闪电，照亮了我的前路。</p>
+<p>“边缘竞斗”——一个由世界政府和十公司联合赞助的，只有失序症患者才能参与的战斗比赛。比赛的规则简单粗暴，胜者为王。而冠军的奖励，更是令人疯狂——可以向世界政府和十公司提出一个愿望，任何愿望，只要他们能做到。</p>
+<p>任何愿望……</p>
+<p>我的呼吸陡然急促起来，口罩下的嘴角不受控制地向上扬起，勾勒出一个近乎癫狂的笑容。</p>
+<p>将我的理念灌输给全世界……让“纯淬世界”降临人间……</p>
+<p>这不就是为我量身定做的机会吗？</p>
+<p>我仿佛已经看到，那些曾经歧视、恐惧失序症患者的人们，在我展现出绝对的力量后，会如何匍匐在地，乞求我的“净化”。那些固步自封的所谓精英，在我阐述“纯淬世界”的宏伟蓝图后，会如何羞愧地承认自己的短视和无知。</p>
+<p>“边缘竞斗……”我低声重复着这个名字，眼中闪烁着前所未有的光芒。眼中那份长久以来被理性压抑的炽热，此刻再也无从遮掩，它烧灼着我的视网膜，将眼前的一切都镀上了一层血与火的光晕。这光芒，不再是追寻真理时那种冷静的、探索性的火焰，而是某种更原始、更野蛮的意志在咆哮——那是对现有秩序的彻底否定，是对一个由我亲手塑造的“纯粹”世界的渴望，是野心与狂热交织而成的黑色太阳。</p>
+<p>是的，选择已无需迟疑。或者说，从我意识到“粹化”的真正潜能那一刻起，命运的轨迹便已悄然转向，指向了这条唯一的道路。所谓的理念，若不能播撒于整个世界，那便只是囚禁于斗室的疯人呓语；所谓的进化，若不能惠及所有迷途的生命，那便只是孤芳自赏的畸形表演。而我，哈维·拉马克，这个被世人视为“患者”的存在，恰恰是新时代的唯一先知与行刑者。</p>
+<p>我的指尖掠过那份关于新型基因编辑酶的分析报告。曾经，这些精密的分子操作和细胞层面的探索，是我引以为傲的成就。但现在，它们在我眼中变得如此……渺小。如同孩童在沙滩上堆砌的城堡，在即将到来的海啸面前，脆弱得不值一提。我拿起那叠薄薄的纸张，没有丝毫犹豫，将其投入了盛放着强酸废液的回收桶。纸张迅速蜷曲、变色，在“滋滋”的微响中化为乌有，正如那个即将被我亲手埋葬的旧时代。我的目光，早已越过这些琐碎的实验数据，投向了那片更广阔、也更需要被“净化”的荒原。</p>
+<p>实验室的灯光冰冷地倾泻下来，我解开了白大褂的纽扣，任其滑落在地。衣物之下，那些与我血肉相连的生物聚合管路，以及胸前那块覆盖着白瓷般光滑外壳的格栅状器官，清晰地暴露在空气中。它们不再仅仅是维持我生命体征的工具，而是我意志的延伸，是我力量的具象。它们在灯光下折射出一种非人的、冷酷而完美的光泽，仿佛不是血肉之躯，而是某种超越了有机生命范畴的艺术品。它们在为即将到来的征途而低鸣，一种只有我能听懂的语言。</p>
+<p>我走到实验室的合金壁前，那光滑如镜的表面映照出我此刻的模样——一个介于人与非人之间的、令人不安的剪影。</p>
+<p>“时候到了。”</p>
+<p>我对着镜中那个全新的、即将以“渎界秽体”之名震撼整个世界的存在，声音平静，却带着不容抗拒的决绝。</p>
+<p>新历44年。史书将会如何记载这一年？或许，它会成为一道分水岭，将人类文明划分为“前哈维时代”与“后哈维时代”。而我，将不再是那只偶然扇动翅膀引发混乱的蝴蝶。</p>
+<p>我将是那场精心策划、无可阻挡、席卷一切的……风暴。</p>
+</div>
+</div>
+</div>
+<div class="footer">
+©失序症工作室出品｜哈维·拉马克</a>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabContents = document.querySelectorAll('.tab-content');
+tabButtons.forEach(button => {
+button.addEventListener('click', () => {
+const tabId = button.dataset.tab;
+tabButtons.forEach(btn => btn.classList.remove('active'));
+tabContents.forEach(content => content.classList.remove('active'));
+button.classList.add('active');
+document.getElementById(tabId).classList.add('active');
+});
+});
+});
+</script>
+</body>

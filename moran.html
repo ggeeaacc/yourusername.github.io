@@ -1,0 +1,384 @@
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>参赛选手档案 - 墨染</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap');
+:root {
+--bg-color: #1a1a1a;
+--panel-bg: rgba(28, 28, 32, 0.85);
+--text-primary: #e0e0e0;
+--text-secondary: #a0a0a0;
+--accent-color: #E5A00D; /* 炼金与复仇的炽热琥珀金 */
+--border-color: rgba(229, 160, 13, 0.3);
+--highlight-bg: rgba(229, 160, 13, 0.1);
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Noto Sans SC', sans-serif;
+background-color: var(--bg-color);
+color: var(--text-primary);
+background-image:
+radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+background-size: 20px 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+padding: 20px;
+}
+.archive-container {
+width: 100%;
+max-width: 1400px;
+height: 90vh;
+max-height: 800px;
+background: var(--panel-bg);
+border: 1px solid var(--border-color);
+border-radius: 15px;
+box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(10px);
+display: flex;
+overflow: hidden;
+}
+.character-portrait {
+flex: 0 0 40%;
+background-color: rgba(0,0,0,0.3);
+border-right: 1px solid var(--border-color);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+position: relative;
+}
+.character-info-panel {
+flex: 1;
+padding: 30px 40px;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+}
+.header-section {
+padding-bottom: 20px;
+border-bottom: 1px solid var(--border-color);
+margin-bottom: 20px;
+}
+.header-section h1 {
+font-family: 'Orbitron', sans-serif;
+font-size: 2.5rem;
+color: var(--accent-color);
+text-shadow: 0 0 10px var(--accent-color);
+margin: 0;
+}
+.header-section h2 {
+font-size: 1.2rem;
+color: var(--text-primary);
+font-weight: 400;
+opacity: 0.8;
+margin-top: 5px;
+}
+.tab-buttons {
+display: flex;
+border-bottom: 1px solid var(--border-color);
+margin-bottom: 20px;
+}
+.tab-button {
+background: none;
+border: none;
+color: var(--text-secondary);
+padding: 10px 20px;
+cursor: pointer;
+font-size: 1rem;
+position: relative;
+transition: color 0.3s ease;
+}
+.tab-button::after {
+content: '';
+position: absolute;
+bottom: -1px;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: var(--accent-color);
+transform: scaleX(0);
+transition: transform 0.3s ease;
+}
+.tab-button.active {
+color: var(--accent-color);
+}
+.tab-button.active::after {
+transform: scaleX(1);
+}
+.tab-content-container {
+flex-grow: 1;
+overflow-y: auto;
+padding-right: 15px;
+}
+.tab-content {
+display: none;
+animation: fadeIn 0.5s ease;
+}
+.tab-content.active {
+display: block;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.tab-content-container::-webkit-scrollbar {
+width: 8px;
+}
+.tab-content-container::-webkit-scrollbar-track {
+background: rgba(0,0,0,0.2);
+border-radius: 4px;
+}
+.tab-content-container::-webkit-scrollbar-thumb {
+background: var(--accent-color);
+border-radius: 4px;
+}
+.tab-content-container::-webkit-scrollbar-thumb:hover {
+background: #F7B83D;
+}
+.info-section {
+margin-bottom: 25px;
+}
+.info-section h3 {
+color: var(--accent-color);
+font-size: 1.3rem;
+border-left: 3px solid var(--accent-color);
+padding-left: 10px;
+margin-bottom: 15px;
+}
+.info-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 15px;
+}
+.info-item {
+background: var(--highlight-bg);
+padding: 10px 15px;
+border-radius: 5px;
+border: 1px solid var(--border-color);
+}
+.info-item .label {
+display: block;
+color: var(--text-secondary);
+font-size: 0.9rem;
+margin-bottom: 3px;
+}
+.info-item .value {
+display: block;
+color: var(--text-primary);
+font-size: 1rem;
+font-weight: 500;
+}
+.info-section p, .info-section ul {
+line-height: 1.7;
+color: var(--text-secondary);
+padding-left: 15px;
+}
+.info-section ul {
+list-style-type: none;
+padding-left: 0;
+}
+.info-section li {
+background: var(--highlight-bg);
+padding: 10px 15px;
+border-radius: 5px;
+margin-bottom: 10px;
+border-left: 2px solid var(--accent-color);
+}
+.story-content p {
+line-height: 1.8;
+color: var(--text-primary);
+text-indent: 2em;
+margin-bottom: 1em;
+}
+.footer {
+text-align: center;
+padding-top: 20px;
+margin-top: auto;
+font-size: 0.8rem;
+color: var(--text-secondary);
+border-top: 1px solid var(--border-color);
+}
+.footer a {
+color: var(--accent-color);
+text-decoration: none;
+}
+.footer a:hover {
+text-decoration: underline;
+}
+@media (max-width: 900px) {
+body {
+padding: 0;
+height: auto;
+min-height: 100vh;
+}
+.archive-container {
+flex-direction: column;
+height: auto;
+max-height: none;
+border-radius: 0;
+}
+.character-portrait {
+flex: 0 0 300px;
+border-right: none;
+border-bottom: 1px solid var(--border-color);
+}
+.character-info-panel {
+padding: 20px;
+}
+.header-section h1 {
+font-size: 2rem;
+}
+}
+</style>
+</head>
+<body>
+<div class="archive-container">
+<div class="character-portrait">
+<img src="https://www.helloimg.com/i/2025/06/09/68468ab91c3ff.png" alt="墨染立绘" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+</div>
+<div class="character-info-panel">
+<div class="header-section">
+<h1>炉晟余辉—墨染</h1>
+<h2>参赛选手档案 // 墨染</h2>
+</div>
+<div class="tab-buttons">
+<button class="tab-button active" data-tab="info-content">选手个人信息</button>
+<button class="tab-button" data-tab="story-content">个人故事</button>
+</div>
+<div class="tab-content-container">
+<div id="info-content" class="tab-content active">
+<div class="info-section">
+<h3>基本信息</h3>
+<div class="info-grid">
+<div class="info-item"><span class="label">年龄</span><span class="value">32岁</span></div>
+<div class="info-item"><span class="label">性别</span><span class="value">女</span></div>
+<div class="info-item"><span class="label">身高</span><span class="value">162cm</span></div>
+<div class="info-item"><span class="label">体重</span><span class="value">49kg</span></div>
+<div class="info-item"><span class="label">出生日期</span><span class="value">新历12年10月22日</span></div>
+<div class="info-item"><span class="label">血型</span><span class="value">AB型</span></div>
+<div class="info-item"><span class="label">籍贯</span><span class="value">殷州</span></div>
+</div>
+</div>
+<div class="info-section">
+<h3>失序症表现: 夺天工</h3>
+<p>患者表现出的失序症是一种非典型物质重构能力，其自行命名为“夺天工”，本义是炼金术士在被世界秩序吞噬前用自身造就的最后一作。其失序症运作机制表现为通过直接接触目标物质，以极高效的熵减方式重构分子排列，实现形态与性质的瞬时突变，例如将柔软织物转化为金属刃具或使无机物具备高动能穿透性，该过程伴随手臂皮肤下浮现不规则的类理术符号金色印记，经光谱分析显示印记能量波长异常且与已知理术符号无逻辑关联，推测为神经突触异常放电与未知能量场交互的具象化表现。</p>
+</div>
+<div class="info-section">
+<h3>装备: 工匠的工具箱</h3>
+<ul>
+<li>主要为适应街头生存及隐蔽行动的自制工具，包括一件由废弃工业防护服改装的轻量化外骨骼，内置微型液压助力装置以弥补营养不良导致的肌力不足，表面涂覆吸光材料。</li>
+<li>腰间挂载的折叠式炼金反应炉为熔火重工淘汰品改造而成，可通过投入有机物残渣生成不稳定酸性凝胶，兼具腐蚀性武器与临时屏障功能；此外携带一组自愈型纳米缝合线，利用失序症能力将普通缝衣针重构为可自主游走于创面、促进细胞再生的医疗装置。</li>
+</ul>
+</div>
+<div class="info-section">
+<h3>个人简介</h3>
+<p>患者为成年女性，亚洲人种，体型消瘦且骨骼肌含量显著低于标准值，体脂率处于营养不良范畴，面部特征呈现长期能量摄入不足导致的颧骨突出及眼窝凹陷，头皮毛发因不明辐射暴露呈现黑底虹彩色异常色素沉积；失序症表现为性非典型物质重构能力，该能力触发时双臂皮肤显现无序金色能量纹路，可通过直接接触实现物质分子结构暴力重组，案例记录显示其曾将棉质织物重构为高碳钢刃具（硬度HRC62）。行为观测显示患者对万驰集团相关标识物表现出病态攻击倾向，结合其主动参与高危赛事“边缘竞斗”的行为模式，推测核心动机与创伤后复仇执念存在强关联性。</p>
+</div>
+</div>
+<div id="story-content" class="tab-content">
+<div class="story-content">
+<p>殷州地下城的风，一如既往地带着铁锈味，刮过我这身连流浪狗都懒得闻第二遍的破烂工装。这套衣服的存在意义，大概就是为了证明某些物质的降解速度远比人类的尊严要慢。熔火重工，那座吞噬了我十年青春的钢铁巨兽，终于把我这件“规格不符的残次品”给吐了出来。理由很充分，也很官僚——一个连引以为傲的理术都再也无法调用的废物，还妄想在炼金术的领域里弄出什么名堂？</p>
+<p>更可笑，或者说更符合这个世界运行逻辑的是，他们似乎选择性遗忘了，我这头被他们那些“高尖端”实验的辐射搞得五彩斑斑斓的黑发，还有我体内这个被诊断为“失序症”的玩意儿，正是拜他们所赐。不，这么说不够准确，应该说，是拜这个狗屎一样的世界，以及我自己当初那个愚蠢的选择所赐。</p>
+<p>我叫墨染，三十二岁，看上去像五十二。营养不良是常态，脸颊凹陷得能当烟灰缸使，皮肤苍白得像太平间里放了三天的滞销品。曾经或许明亮的眼睛，如今只剩下两口干涸的井，偶尔能倒映出霓虹都市那虚伪的繁华，更多的则是无尽的空洞。</p>
+<p>他们说我疯了。或许吧，毕竟一个清醒的人，不会把“成为炼金术宗师”这种虚无缥缈的玩意儿当成活下去的唯一支柱，尤其是在连理术都玩不转之后。理术，那是通过心灵运算，与一种无处不在的能量场进行沟通，引导其共鸣，从而引发奇迹的技艺。它是炼金术这门学科的基石，是撬动现实的杠杆。</p>
+<p>而现在的我，连最基础的理术符号都无法完成。我的身体，或者说我的灵魂，与“能量场”的连接被粗暴地切断了。就像一台被剪断了所有线路的老旧终端机，除了占据空间和积灰，再无他用。</p>
+<p>这一切，都得从我那该死的童年说起。</p>
+<p>我对父母的印象模糊得像隔着毛玻璃看风景，只记得无休止的争吵，摔碎的碗碟，以及最后那个冰冷的雨夜，他们各自走向了不同的方向，把我，一件显然不属于任何一方的行李，遗弃在了街角的积水中。那年我几岁？不记得了，大概是刚学会怎么不尿床的年纪。</p>
+<p>接下来的日子，是标准的流浪儿生活：在垃圾桶里翻找过期食物，和野狗抢地盘，在堆叠的蜂巢住宿舱的缝隙下瑟瑟发抖地度过每一个寒夜。世界于我而言，就是一坨巨大、冰冷且充满恶意的垃圾场。我学会了像老鼠一样警惕，像蟑螂一样顽强，也像阴沟里的苔藓一样，卑微且绝望地活着。</p>
+<p>直到琉璃姐的出现，我那段灰色的生存记录里，才被硬生生插入了一段不协调的亮色。</p>
+<p>那是一个黄昏，我因为偷窃一管营养膏被人追打，像条被打断了后腿的野狗一样，窜进了一条堆满废弃机械零件的死胡同。就在我以为自己那脆弱的肋骨即将被合金靴子踩碎的时候，一道清冷，但并不缺乏温度的声音响了起来。“住手。”</p>
+<p>琉璃姐就那样站在巷口，夕阳的余晖勾勒出她身体的轮廓，像极了那些三流漫画里描绘的，自带圣光的英雄角色。她穿着一身朴素但异常干净的工装，手里提着一个沉甸甸的金属工具箱，眼神明亮而坚定。那几个平日里凶神恶煞的赛博格在她面前，竟显得有些局促，他们低声嘟囔了几句意义不明的黑话，便悻悻地离开了。</p>
+<p>她没有多问什么，只是弯下腰，用那双沾着机油却异常灵巧的手，轻轻擦去我脸上的污泥和血迹。然后，她递给我半瓶干净的饮用水和一个还带着余温的能量棒。“以后别偷东西了，跟我走吧。”她说。</p>
+<p>我跟她走了。这个决定不需要经过大脑的任何思考，纯粹是生物趋利避害的本能。就像一只被遗弃了很久的小狗，终于嗅到了食物和安全的味道。</p>
+<p>琉璃姐是一名理术师，而且是一名对炼金术有着狂热追求的理术师。她租住在一个废弃工厂改造的简陋工作室里，那里堆满了各种稀奇古怪的材料和半成品。她告诉我，炼金术是世界上最伟大的艺术，它不是简单的物质转换，而是赋予物质灵魂，创造奇迹的学问。她的梦想，是成为这个时代最伟大的炼金术宗师，让那些冰冷的钢铁重新焕发生机，让那些被遗弃的废品绽放出新的光彩。</p>
+<p>她说这些话的时候，眼睛里闪烁着一种独特的光芒。我后来知道，那叫理想。在殷州地下城这种地方，理想是一种比钻石更罕见，也更无用的东西。但当时的我并不知道，我只觉得，她眼中的光，比头顶那片由全息投影构成的虚假天空，要真实一万倍。</p>
+<p>她发现了我对能量——琉璃姐称之为“世界秩序”——的微弱感知力。她欣喜若狂，说我是个未经雕琢的天才，是命运赐予她的礼物。于是，她为我进行了启灵仪式，并开始系统地教我理术。从最基础的理术符号，到复杂的运算路径构筑，再到高阶的物质结构解析。她把她所知道的一切都倾囊相授，而我，也像一块被扔进水里的压缩海绵，疯狂地吸收着一切知识。</p>
+<p>那些年，是我那乏善可陈的人生履历中，唯一可以被定义为“幸福”的时光。琉璃姐的笑容，工作室里金属碰撞的叮当声，以及心灵运算在指尖流淌的奇妙触感，构成了我世界的全部。我不再是那个在街头巷尾瑟缩躲藏的小乞丐，我有了可以称之为“家”的地方，有了为之奋斗的目标，甚至有了一个听起来遥不可及，但并非全无可能的梦想——和琉璃姐一起，成为炼金术的宗师。</p>
+<p>我以为这样的日子会一直持续下去，直到我们一起站在炼金术的顶峰。</p>
+<p>但生活这婊子，总喜欢在你最得意的时候给你一记响亮的耳光。</p>
+<p>那是一次为了收集稀有材料的远行。我们的目标是一种只在殷州地下城最深处的“螭吻层”才能找到的晶体矿石——龙血矿。琉璃姐说，这种矿石是炼制某种关键催化剂的核心材料，能大幅提升理术反应的稳定性。她本来不打算带上我，说那里太过危险。但我用尽了死缠烂打的手段，她最终还是心软同意了。</p>
+<p>“螭吻层”，那是连公司都放弃治理的深渊。地热井喷发的硫磺毒雾腐蚀着一切金属，幸存者被迫植入廉价的陶瓷义体，肢体因高温扭曲成虾蟹般的怪异形态，随处可见择人而噬的变异生物。我们小心翼翼地潜入，找到了矿脉。就在我们准备撤离的时候，意外发生了。</p>
+<p>一只我从未见过的“异常”从地底钻出，它没有固定的形态，像一团流动的阴影，散发着令人作呕的腐臭气息。它的攻击迅猛而诡异，琉璃姐为了保护我，被那团阴影缠住了。</p>
+<p>我眼睁睁地看着她被那怪物吞噬，喉咙里却发不出任何声音，巨大的恐惧扼住了我的声带。她最后看向我的那个眼神，我至今无法准确解读。那里面有不甘，有担忧，还有一丝……解脱？我不知道。我只知道，我的世界，在那一刻，连同琉璃姐的身体一起，被那团阴影撕得粉碎。</p>
+<p>我带着她用生命换来的矿石，浑浑噩噩地逃了出去。</p>
+<p>琉璃姐死了。我的光熄灭了。</p>
+<p>接下来的日子，我又回到了那种行尸走肉的状态。支撑我活下去的唯一念头，就是完成琉璃姐的遗愿——成为炼金术宗师。但一个失去一切的孤儿，拿什么去实现这个遥不可及的梦想？</p>
+<p>就在这时，熔火重工向我伸出了橄榄枝。</p>
+<p>他们不知从哪里听说了我的“天赋”，以及琉璃姐的事情。他们派来的人西装革履，笑容可掬，说得天花乱坠，承诺会给我提供最好的研究环境，最先进的设备，以及接触到真正炼金术核心的机会。</p>
+<p>我像抓住救命稻草一样，答应了他们，连自己的灵魂都交给了他们。我天真地以为，这是实现梦想的捷径。</p>
+<p>然后，我就成了熔火重工的一颗螺丝钉。一颗微不足道，可以随时替换的螺丝钉。</p>
+<p>所谓的“最好研究环境”，不过是巨大工厂里一个不起眼的角落，充斥着刺鼻的化学药剂味道和永不停歇的机器轰鸣声。所谓的“先进设备”，我连摸都摸不到，每天的工作就是按照标准流程，处理那些初级到可笑的材料，日复一日，年复一年。</p>
+<p>我的理术天赋，在这里成了流水线上的计件工具。我的梦想，在这里成了同事们茶余饭后的笑料。“嘿，看那个家伙，还真以为自己能成炼金宗师呢？”</p>
+<p>我试图反抗，试图争取，但换来的只有冰冷的警告和更加繁重的工作。合同像一条无形的锁链，将我牢牢地捆绑在这座钢铁囚笼里。我开始明白，熔火重工需要的不是天才，不是有梦想的工匠，他们需要的只是廉价的劳动力，是能为他们创造利润的工具。</p>
+<p>绝望像潮水一样将我淹没。我开始怀疑，琉璃姐的梦想，是不是从一开始就是个笑话。炼金术宗师？在这个一切都被资本和权力掌控的时代，简直是痴人说梦。</p>
+<p>就在我快要彻底麻木，准备像块废铁一样锈死在熔火重工的时候，失序症找上了我。</p>
+<p>那是一种毫无征兆的突变，仿佛身体里的某种底层代码被篡改了。先是持续性的剧烈头痛，然后是感官的错乱，听觉和视觉信号会随机混淆。最后，我发现自己画出的理术符号，再也无法激起“世界秩序”的任何共鸣。不，更准确地说，我甚至再也感受不到那个曾经无处不在的能量场了，老实说，有一种长期呼吸困难的病患突然能够大口呼吸到新鲜空气的感觉。</p>
+<p>医生给出的诊断是“失序症”，一种原因不明的罕见病症据说，普通人患上会获得一些无法预测的特殊能力，但理术师患上此症，则会百分之百地失去使用理术的能力。对我而言，这意味着我失去了赖以生存的唯一技能。</p>
+<p>讽刺的是，这反而成了我脱离熔火重工的契机。一个连理术都无法使用的废物，对他们来说已经没有任何利用价值了。他们毫不留情地把我踢了出去，像扔掉一件用旧了的工具。</p>
+<p>我再次回到了街头，比当年更加狼狈。至少当年，我还有琉璃姐，还有梦想。现在，我一无所有。</p>
+<p>不，也不算一无所有。我还多了这头因为长期接触各种不明辐射和化学物质而变得五彩斑斓的黑发，以及一种被我戏称为“夺天工”的古怪能力。</p>
+<p>这是失序症的“馈赠”。在我失去理术的同时，我的身体似乎开启了另一种与物质沟通的方式。我无法再精细地引导能量，但我可以用一种更粗暴、更直接的方式改变物质的形态。比如，把一个柔软的枕头，在几秒钟内重构成一把锋利的短剑；或者把一块普通的石头，变成一枚足以打穿钢板的弹丸。</p>
+<p>使用这种能力时，我的手臂上会浮现出类似理术符号的金色印记，但那些印记的线条杂乱无章，扭曲不堪，充满了不祥的气息。这根本不是什么炼金术，这更像是某种……亵渎。</p>
+<p>我像个幽魂一样在城市的阴暗角落游荡，靠着“夺天工”偶尔接一些见不得光的活计勉强糊口。炼金术宗师的梦想，已经彻底被我埋葬了，连块墓碑都懒得立。</p>
+<p>直到那天，我无意中黑进了一个属于万驰集团的加密数据库。</p>
+<p>万驰集团，这个城市乃至这个星球的巨擘“十公司”之一，垄断了几乎所有和交通有关的产业。他们的名字，就像空气一样无处不在。</p>
+<p>我本来只是想找点有价值的情报换点酒钱，却意外地发现了一份尘封多年的报告。报告的标题是《关于“理术师RL-073”捕获及脑组织活性化应用于“苍龙”系统可行性分析》。</p>
+<p>“RL-073”，这个编号让我心脏猛地一缩。琉璃姐，她在理术局的理术师认证代号就是RL-073！</p>
+<p>我颤抖着双手点开了报告。里面的内容，像一把烧红的烙铁，狠狠地烫在我的灵魂上。</p>
+<p>报告详细记录了万驰集团的一次秘密行动。他们利用某种诱导装置，引诱“异常生物”袭击了琉璃姐所在的区域。他们的目标，从一开始就是琉璃姐！他们看中的，是她那远超常人的理术天赋和强大的精神力！</p>
+<p>琉璃姐并没有当场死亡！她只是受了重伤，陷入了濒死状态！</p>
+<p>然后，万驰集团的人像秃鹫一样出现，带走了她，或者说，带走了她那还有一丝活性的身体。他们把她运到了位于殷州天上的苍壁岛，那里有一台名为【苍龙】的巨型湿件计算机。</p>
+<p>【苍龙】，是万驰集团用来控制整个城市乃至周边区域天轨交通运输系统的中枢核心。它需要不断补充高质量的“生物脑组织”来维持其庞大的运算能力和自我修复机制。</p>
+<p>琉璃姐的大脑，被他们像零件一样，植入了【苍龙】！</p>
+<p>报告的最后，还附带了几张模糊的图片。其中一张，是琉璃姐苍白而平静的脸，双眼紧闭，仿佛睡着了一般。她的头部连接着无数密密麻麻的导线，没入了冰冷的金属仪器之中。</p>
+<p>“轰——！”</p>
+<p>我脑子里有什么东西炸开了。</p>
+<p>愤怒、悲伤、悔恨、绝望……无数种情绪像决堤的洪水一样，瞬间将我那早已脆弱不堪的理智冲垮。</p>
+<p>原来，琉璃姐的死，根本不是什么该死的意外！</p>
+<p>原来，我一直以来坚持的，那可笑的所谓“遗愿”，从头到尾就是一个天大的笑话！</p>
+<p>原来，我像个无可救药的傻子一样，在熔火重工那个地狱里浪费了整整十年的青春，而真正的凶手，却高高在上，享受着琉璃姐用生命和灵魂换来的便利！</p>
+<p>万驰集团。万、驰、集、团。呵……呵呵……哈哈哈哈哈哈！原来是你！原来是你啊！我那死去的琉璃姐，我那腐烂的梦想，我这身人不人鬼不鬼的皮囊，终于他妈的找到了一个可以挂上去的钩子了！哈哈哈哈！太妙了！简直是……神来之笔啊！</p>
+<p>我笑得浑身发抖，眼泪鼻涕糊了一脸，五彩斑斓的黑发像一窝被捅了的毒蛇一样狂舞。胸腔里那颗早就半死不活的心脏，此刻却像嗑了十吨兴奋剂的疯狗一样狂跳，撞得我肋骨生疼。疼？太好了！疼就说明我还活着！还能……干点什么！</p>
+<p>可是，凭什么？凭我这个被熔火重工抛弃的废物？凭我这身连自己都嫌弃的破烂？凭我这半吊子的“夺天工”？</p>
+<p>就在我陷入更深一层的绝望时，一则花里胡哨的广告投影，像一坨狗屎一样精准地糊在了我面前的墙壁上。</p>
+<p>“边缘竞斗！全地区瞩目！一场只属于失序症患者的格斗盛宴！挑战极限，赢取荣耀！本届大赛的最终冠军，将获得由世界政府及十公司联合担保的，实现一个任意愿望的机会！”</p>
+<p>任意愿望？这听起来就像街头骗子兜售的，能包治百病的万能神药，每一个像素都充满了虚假和诱惑的味道。但对于一个已经一无所有，只剩下满腔怒火和扭曲执念的疯子来说，这或许是唯一的，能够通往地狱的阶梯。</p>
+<p>我的眼睛死死地盯着那则不断闪烁的广告，空洞的眼神里，第一次重新燃起了一丝微弱却无比炽热的光芒。那是地狱的业火，也是复仇的狼烟。</p>
+<p>我缓缓伸出手，那双枯柴一样的手。手臂上那些金色的，鬼画符一般的印记，此刻像是感应到了我内心的狂喜和恶意，它们不再是冰冷的皮肤纹路，而是活了过来！它们在我的皮肤下缓缓蠕动，像一条条饥渴的金色小蛇，发出微弱的，只有我能听见的嘶嘶声。哦，我的小宝贝们，我的“夺天工”，你们也等不及了吗？别急，别急，很快……很快就有大餐给你们享用了！</p>
+<p>我们要把那些高高在上的先生们，把他们坚固的钢铁堡垒，把他们引以为傲的一切，都变成……变成一场最华丽的烟花！一场盛大的……葬礼！对！就是葬礼！</p>
+<p>“扼住整个世界的咽喉？”我神经质地咯咯笑着，用那双布满金色印记的手，在空气中虚空地抓握了几下，仿佛在抚摸一件稀世珍宝。“不，不，世界太粗糙了，会硌着我的小宝贝们。万驰集团……嗯，他们的脖子，想必一定很光滑，很细腻，像上好的瓷器……捏碎的时候，声音一定……非常悦耳！”</p>
+<p>“边缘竞斗！”我猛地抬起头，视网膜上那则广告还在执着地闪耀，像一颗已经腐烂的星辰，却散发着致命的诱惑。“冠军的……任意愿望？”我舔了舔干裂的嘴唇，眼神里闪烁着一种孩童般的天真与残忍，“太棒了！这简直是为我量身定做的舞台！琉璃姐，你不是想成为炼金术宗师吗？看着吧！我要用他们的骨头和血肉，为你炼制一座……前无古人，后无来者的……纪念碑！哈哈哈哈哈哈！”</p>
+<p>我像个真正的疯子一样，在空无一人的陋巷里放声大笑，笑声尖锐而刺耳，穿透了潮湿的空气，惊起了一片在垃圾堆里觅食的夜鸦。</p>
+<p>那就来吧！让这场盛大的、扭曲的、只属于墨染一个人的狂欢，从现在开始！</p>
+</div>
+</div>
+</div>
+<div class="footer">
+©失序症工作室出品｜墨染</a>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabContents = document.querySelectorAll('.tab-content');
+tabButtons.forEach(button => {
+button.addEventListener('click', () => {
+const tabId = button.dataset.tab;
+tabButtons.forEach(btn => btn.classList.remove('active'));
+tabContents.forEach(content => content.classList.remove('active'));
+button.classList.add('active');
+document.getElementById(tabId).classList.add('active');
+});
+});
+});
+</script>
+</body>

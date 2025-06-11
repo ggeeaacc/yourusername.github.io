@@ -1,0 +1,432 @@
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>参赛选手档案 - 盖恩·卢卡斯</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap');
+:root {
+--bg-color: #1a1a1a;
+--panel-bg: rgba(28, 28, 32, 0.85);
+--text-primary: #e0e0e0;
+--text-secondary: #a0a0a0;
+--accent-color: #9400D3; /* 黑暗、腐朽与救赎的深邃紫色 */
+--border-color: rgba(148, 0, 211, 0.3);
+--highlight-bg: rgba(148, 0, 211, 0.1);
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Noto Sans SC', sans-serif;
+background-color: var(--bg-color);
+color: var(--text-primary);
+background-image:
+radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+background-size: 20px 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+padding: 20px;
+}
+.archive-container {
+width: 100%;
+max-width: 1400px;
+height: 90vh;
+max-height: 800px;
+background: var(--panel-bg);
+border: 1px solid var(--border-color);
+border-radius: 15px;
+box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(10px);
+display: flex;
+overflow: hidden;
+}
+.character-portrait {
+flex: 0 0 40%;
+background-color: rgba(0,0,0,0.3);
+border-right: 1px solid var(--border-color);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+position: relative;
+}
+.character-info-panel {
+flex: 1;
+padding: 30px 40px;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+}
+.header-section {
+padding-bottom: 20px;
+border-bottom: 1px solid var(--border-color);
+margin-bottom: 20px;
+}
+.header-section h1 {
+font-family: 'Orbitron', sans-serif;
+font-size: 2.5rem;
+color: var(--accent-color);
+text-shadow: 0 0 10px var(--accent-color);
+margin: 0;
+}
+.header-section h2 {
+font-size: 1.2rem;
+color: var(--text-primary);
+font-weight: 400;
+opacity: 0.8;
+margin-top: 5px;
+}
+.tab-buttons {
+display: flex;
+border-bottom: 1px solid var(--border-color);
+margin-bottom: 20px;
+}
+.tab-button {
+background: none;
+border: none;
+color: var(--text-secondary);
+padding: 10px 20px;
+cursor: pointer;
+font-size: 1rem;
+position: relative;
+transition: color 0.3s ease;
+}
+.tab-button::after {
+content: '';
+position: absolute;
+bottom: -1px;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: var(--accent-color);
+transform: scaleX(0);
+transition: transform 0.3s ease;
+}
+.tab-button.active {
+color: var(--accent-color);
+}
+.tab-button.active::after {
+transform: scaleX(1);
+}
+.tab-content-container {
+flex-grow: 1;
+overflow-y: auto;
+padding-right: 15px;
+}
+.tab-content {
+display: none;
+animation: fadeIn 0.5s ease;
+}
+.tab-content.active {
+display: block;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.tab-content-container::-webkit-scrollbar {
+width: 8px;
+}
+.tab-content-container::-webkit-scrollbar-track {
+background: rgba(0,0,0,0.2);
+border-radius: 4px;
+}
+.tab-content-container::-webkit-scrollbar-thumb {
+background: var(--accent-color);
+border-radius: 4px;
+}
+.tab-content-container::-webkit-scrollbar-thumb:hover {
+background: #A958D6;
+}
+.info-section {
+margin-bottom: 25px;
+}
+.info-section h3 {
+color: var(--accent-color);
+font-size: 1.3rem;
+border-left: 3px solid var(--accent-color);
+padding-left: 10px;
+margin-bottom: 15px;
+}
+.info-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 15px;
+}
+.info-item {
+background: var(--highlight-bg);
+padding: 10px 15px;
+border-radius: 5px;
+border: 1px solid var(--border-color);
+}
+.info-item .label {
+display: block;
+color: var(--text-secondary);
+font-size: 0.9rem;
+margin-bottom: 3px;
+}
+.info-item .value {
+display: block;
+color: var(--text-primary);
+font-size: 1rem;
+font-weight: 500;
+}
+.info-section p, .info-section ul {
+line-height: 1.7;
+color: var(--text-secondary);
+padding-left: 15px;
+}
+.info-section ul {
+list-style-type: none;
+padding-left: 0;
+}
+.info-section li {
+background: var(--highlight-bg);
+padding: 10px 15px;
+border-radius: 5px;
+margin-bottom: 10px;
+border-left: 2px solid var(--accent-color);
+}
+.story-content p {
+line-height: 1.8;
+color: var(--text-primary);
+text-indent: 2em;
+margin-bottom: 1em;
+}
+.story-content i p {
+font-style: italic;
+color: #c0c0c0;
+}
+.footer {
+text-align: center;
+padding-top: 20px;
+margin-top: auto;
+font-size: 0.8rem;
+color: var(--text-secondary);
+border-top: 1px solid var(--border-color);
+}
+.footer a {
+color: var(--accent-color);
+text-decoration: none;
+}
+.footer a:hover {
+text-decoration: underline;
+}
+@media (max-width: 900px) {
+body {
+padding: 0;
+height: auto;
+min-height: 100vh;
+}
+.archive-container {
+flex-direction: column;
+height: auto;
+max-height: none;
+border-radius: 0;
+}
+.character-portrait {
+flex: 0 0 300px;
+border-right: none;
+border-bottom: 1px solid var(--border-color);
+}
+.character-info-panel {
+padding: 20px;
+}
+.header-section h1 {
+font-size: 2rem;
+}
+}
+</style>
+</head>
+<body>
+<div class="archive-container">
+<div class="character-portrait">
+<img src="https://www.helloimg.com/i/2025/06/09/68469a5d78e40.png" alt="盖恩·卢卡斯立绘" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+</div>
+<div class="character-info-panel">
+<div class="header-section">
+<h1>霓光溺亡—盖恩·卢卡斯</h1>
+<h2>参赛选手档案 // 盖恩·卢卡斯</h2>
+</div>
+<div class="tab-buttons">
+<button class="tab-button active" data-tab="info-content">选手个人信息</button>
+<button class="tab-button" data-tab="story-content">个人故事</button>
+</div>
+<div class="tab-content-container">
+<div id="info-content" class="tab-content active">
+<div class="info-section">
+<h3>基本信息</h3>
+<div class="info-grid">
+<div class="info-item"><span class="label">年龄</span><span class="value">23岁</span></div>
+<div class="info-item"><span class="label">性别</span><span class="value">女</span></div>
+<div class="info-item"><span class="label">身高</span><span class="value">163cm</span></div>
+<div class="info-item"><span class="label">体重</span><span class="value">47kg</span></div>
+<div class="info-item"><span class="label">出生日期</span><span class="value">新历21年9月25日</span></div>
+<div class="info-item"><span class="label">血型</span><span class="value">A型</span></div>
+<div class="info-item"><span class="label">籍贯</span><span class="value">莱顿罗斯福</span></div>
+</div>
+</div>
+<div class="info-section">
+<h3>失序症表现: 夜不收</h3>
+<p>患者能够促使物体在短时间内经历快速的腐朽和结构解体。根据患者描述，这一现象是通过一种精神过程实现的，该过程涉及对物体的固有价值进行否定。在对这一现象进行监控和记录时，观察到物体在腐朽过程中似乎伴随着一种不明暗色物质的瞬时出现和消失。该暗色物质的具体性质和与物体腐朽之间的关联尚未明确。</p>
+<p>在实验室条件下，对患者进行的观察显示，当患者集中注意力于特定物体时，物体会迅速失去其结构完整性，表现为颜色变化、质地变软、最终崩溃成粉末或碎片。监控设备捕捉到的图像显示，在物体开始腐朽的同时，周围空间中出现了短暂的暗色物质，这些物质在物体完全解体后随即消失。</p>
+</div>
+<div class="info-section">
+<h3>装备: 护身符</h3>
+<ul>
+<li>患者并未携带武器，全身上下除了衣物外唯一的东西是挂在脖颈的护身符，铁制，长6cm宽3cm，上刻有“salvation”。该单词主要出现于尘世之门教会的圣典，多译为拯救。</li>
+</ul>
+</div>
+<div class="info-section">
+<h3>个人简介</h3>
+<p>患者为一成年女性，高加索人种，体型娇小，体重低于平均水平。患者表现出极度严重的恐光症，即对光线的极端恐惧，导致在光照环境下拒绝进行身体检查。在低光照条件下实施检查后，观察到患者肌肉发达程度较常人更为发达，尽管未达到健硕的状态。此外，患者皮肤存在广泛的溃烂和伤口，这些伤口是由于患者对光线的极度敏感性，在光线直射下会出现皮肤溃烂和精神崩溃，这是“失序症”带来的副作用之一。</p>
+<p>在沟通过程中，患者难以通过正常交流明确其参与比赛的动机。根据行为分析，推测患者可能旨在通过参与比赛来证明自己的价值。</p>
+</div>
+</div>
+<div id="story-content" class="tab-content">
+<div class="story-content">
+<i><p>“吸上一口那玩意，烟雾大概就会在你的肺叶里撞个不停，最后从你的鼻腔里一股脑地窜出来——毫无疑问，这是一根香烟，而这是我第一次尝试这讨厌的小玩意。</p></i>
+<i><p>“老实说，体验很差，脑袋仿佛被打了一拳。</p></i>
+<i><p>“我到现在也不知道这玩意是怎么和宗教、棉花糖一样，从不知多少个世纪前活到到现在的，按理，这些无价值、无意义的玩意儿，早就该被摒弃了才对。”</p></i>
+<i><p>眼下，我正坐在路边喃喃自语着，不过附近除了那个小女孩也没有其他人了，所以她也许以为我在同她说话吧。不过要是有个人陪我聊聊天也挺好的，毕竟这次的任务枯燥得让人发狂。又是要在特定的时间，又是要低调行事，还要留下活口……真是的，新装的义体又派不上用场，要不然直接炸了这里多省事。不过要是真这么做，我大概要交上不少pt才能从警署脱身吧。</p></i>
+<i><p>“那您为什么要抽烟呢，叔叔？那东西对身体不好。”</p></i>
+<i><p>“而且，棉花糖是什么？”</p></i>
+<i><p>真是个尖锐的问题，我为何要沉溺于这烟雾之中？</p></i>
+<i><p>“小朋友，有时候，人们不得不做一些自己不喜欢的事，以此来证明自己的价值。至于棉花糖？嗯……一种价格不菲，却转瞬即逝的东西。”</p></i>
+<i><p>我转过头去，对上了那女孩疑惑的眼神。而直到这时我才注意到，那女孩的脸上、胳膊上尽是些伤口和淤青。</p></i>
+<i><p>“被人欺负了？”</p></i>
+<i><p>那女孩明显愣了一下，好像没明白我的意思。</p></i>
+<i><p>“你说这些吗？”她指了指身上的伤口，想了半晌才继续说道：“用大叔你的话来讲，这些不过是我没能证明自己的价值所受到的惩罚罢了。毕竟我可是家里的希望，如果不能够努力上进的话，就应该受到这样的处罚。”</p></i>
+<i><p>很奇怪。</p></i>
+<i><p>如果我没看错的话，她好像对此感到骄傲。</p></i>
+<i><p>只能说不愧是贫民窟吗？连教育方式也这么残暴。</p></i>
+<i><p>“那你现在在这待着干嘛？”</p></i>
+<i><p>“……要是能晚点回去的话，受处罚的时间应该会短一些吧。”</p></i>
+<i><p>那女孩的语调起码降了几个度。</p></i>
+<i><p>一阵沉默过后，我才发觉时间差不多了，便站起身来，随意地把烟头丢进了下水道里。</p></i>
+<i><p>“大叔，不要乱扔垃圾啊。”女孩的声音中带着一丝责备。</p></i>
+<i><p>我惊讶地看了她一眼，她正用一种愤愤不平的眼神盯着我。</p></i>
+<i><p>这年头还有人这样教育孩子？而且这里不是贫民窟吗？好吧，我还以为那些好好市民已经被异常和失序疯子杀完了，只存在于肥皂剧中呢。</p></i>
+<i><p>“那东西已经没有价值了，所以扔了就扔了吧。”</p></i>
+<i><p>“就像你们一样。”这句我说得很小声。</p></i>
+<i><p>像这样小的孩子，应该无法理解这样暴力的诡辩吧？至少这个方法应该能让她的小脑瓜暂时短路一会儿，让她的注意力从我身上移开。</p></i>
+<i><p>虽说香烟也是没什么价值的东西，不过这次任务倒是用得到它。</p></i>
+<i><p>比如只要稍微动用一下超能力——或者是叫失序症还是什么的玩意，稍微调整一下火焰的参数，在我走出几个街区后，大概就会有“轰”的一声响起，接着大火会淹没整个贫民窟。</p></i>
+<i><p>“轰！”</p></i>
+<i><p>就像现在这样。</p></i>
+<i><p>热浪轻轻拂过我的衣袖，希望不会刮掉我义体刚上的漆。</p></i>
+<p>视频在最后的爆炸场面戛然而止，那震撼的一幕让我心中涌起一股莫名的熟悉感，却又一时难以捕捉具体的记忆。我只好关闭了眼前的弹窗，将视线转向眼前那个珠光宝气的男人。</p>
+<p>“你打算拍电影了？”</p>
+<p>他搓了搓那肥大的手指，一脸戏谑地盯着我——有时候我真想拆开他那消瘦的身躯，看看里面究竟藏着什么秘密，让他能驾驭这样粗鲁的手指。</p>
+<p>而且他明明知道我不喜欢被这种眼神盯着，真是个恶劣的家伙。</p>
+<p>“后面还有好东西，慢慢看，不急。”他轻描淡写地说，仿佛在享受我的不耐烦。</p>
+<p>真是的，这样搞课题进度又得往后拖了。我烦躁地挠了挠头，打开了第二篇文档。</p>
+<i><p>吃完早饭后，我开始了今日份的祷告。</p></i>
+<i><p>然后是收拾、洗碗、坐到沙发上。</p></i>
+<i><p>直到双眼再次聚焦在空无一物的墙壁上，我才意识到手中的烟早已熄灭，只剩下一缕淡淡的余温，只好把它揣回到口袋里。</p></i>
+<i><p>接下来应该是......</p></i>
+<i><p>我开始录制今天的日志。</p></i>
+<i><p>“今天早上醒来的时候，发现自己又做了那个梦。</p></i>
+<i><p>“梦到自己亲手毁了那个地方，杀死了数不清的人</p></i>
+<i><p>“我本以为我的人生会一直走向堕落，要不是遇到了神父……”</p></i>
+<i><p>我的声音略有些沙哑，声带义体已经很久没维护了。</p></i>
+<i><p>“感谢真主，让神父发现了我、让我有了信仰、让我还来得及为自己偿还罪业。</p></i>
+<i><p>“今天是……第6329天，也是我忏悔的第62天。那个女孩……那个和我说过话的女孩，我打听到了她的下落……她还活着，没离开过莱顿罗斯福，所以今天我要去……赎罪。</p></i>
+<i><p>我深吸一口气，继续说道：</p></i>
+<i><p>“愿真主饶恕我。”</p></i>
+<i><p>当我回过神来的时候，太阳已经快要落山了。</p></i>
+<i><p>早上的时候我就坐在这条街道里了，到现在也没有看见她的影子。</p></i>
+<i><p>她难道在那间屋子里待了一天吗？</p></i>
+<i><p>看着光芒渐渐消逝的太阳，我还是决定去敲敲门。</p></i>
+<i><p>“咚咚咚”</p></i>
+<i><p>屋里传来了悉悉索索的声音，动静很大。</p></i>
+<i><p>“谁？”</p></i>
+<i><p>有那么一刻，我愣住了。</p></i>
+<i><p>那声音听着很疲惫，很沙哑，甚至于……有些痛苦。</p></i>
+<i><p>“是盖恩女士吗？我是来忏悔的。”</p></i>
+<i><p>然后是一阵沉默。</p></i>
+<i><p>想来，这样的开场白，确实会让人感到不解。</p></i>
+<i><p>“在6329天之前，我犯下了不可饶恕的罪……整个贫民窟都被毁了。我打听到你还活着，我想你也许还记得我，所以我来到了这里，希望能祈求你的原谅——无论你要我做什么都好。”</p></i>
+<i><p>说完这句后，我在门外等了许久，都没有听到里面有一丝声音。</p></i>
+<i><p>我看了看手上斥巨资买的棉花糖，它在昏暗的光线下显得格外苍白。</p></i>
+<i><p>“我带了一些礼物，希望你起码能够收下这个。”</p></i>
+<i><p>“现在外面……天黑了吗？”</p></i>
+<i><p>说实话，我真没想到她的回答会是这样的，但我还是回头看了看，太阳几乎完全落下去了，只留下几缕残存的微光。</p></i>
+<i><p>不过有一点倒是挺惹人注意的，明明是在遍地霓虹的莱顿罗斯福，这个地方居然接收不到多少光亮。</p></i>
+<i><p>“天黑了，怎么了？”</p></i>
+<i><p>“吱——”</p></i>
+<i><p>门开了一条缝，里面一片漆黑——似乎能把人吞掉。</p></i>
+<i><p>我想象不出什么样的人会生活在这种地方，而现在，这样的人和我之间只隔了一扇门。</p></i>
+<i><p>“进来吧，别开灯”</p></i>
+<i><p>我慢慢走了进去，准备迎接属于自己的救赎。</p></i>
+<i><p>老实说，里面好黑啊，我甚至感觉不到……我的形状。</p></i>
+<p>“所以这些是？”</p>
+<p>我关掉了眼前的弹窗，看向眼前那个珠光宝气的男人。</p>
+<p>“还记得你十几年前做的那个实验吗？关于失序症的那个。瞧瞧我发现了什么！”他兴奋地挥舞着手中的终端，仿佛握着的是通往另一个世界的钥匙。“当年那个杀手最近记录的日志！咳……咳……至于那个视频嘛，我把他的梦境从云端提取出来了。”</p>
+<p>我能看得出来他很激动，但我实在是不喜欢有口水溅到我的身上，而且我也没太明白这些东西能有什么实际的用途，只好不动声色地往后退了两步。</p>
+<p>“先不说别的，为什么这个日志到那就戛然而止了？”我问道，试图引导话题回到正轨。</p>
+<p>我看到他笑了一下——是那种令人讨厌的笑。</p>
+<p>真讨厌，若不是为了研究资金，谁会愿意和他待在一起呢？</p>
+<p>“答案很显而易见，那家伙被杀了。不过奇怪的是，他身上的什么硬件软件都找不到，好像凭空消失了一般，要不是从云端上拿到了这个日志，我可能还不会知道事情的真相。</p>
+<p>“当时被你抛下的课题，现在看来最终结果的是理想的，幸存者在各种压力的集合下，确实会诱发失序症。我想想，怎么说来着，小盖恩用失序症否定了那家伙的存在，所以那家伙消失了！”说到这，他激动地打了个响指，他的手到底是怎么打出响指的？</p>
+<p>“真是大快人心，不是吗？只不过可惜了，少了个有失序症的打手——虽然他那副样子也没啥用了，不过倒也省得我清理。”</p>
+<p>“现在说这些有什么用？”我的声音中透露出一丝不耐烦，对于那些已经无法挽回的过去，我向来没有太多耐心。“要不是有人抢先公布研究结果，我又怎么会放弃这么有价值的课题？”</p>
+<p>“而且你喊我来不会就是想说这种没价值的话题吧？”</p>
+<p>他没回答，反而是又开始搓起了他的手指，直勾勾的盯着我看了起来。</p>
+<p>“说起来，我很好奇，你是怎么让那家伙学会你那个口头禅的？”</p>
+<p>我有点没明白。</p>
+<p>“什么口头禅？”</p>
+<p>“你没发觉你总是喜欢将‘价值’两个字挂在嘴边吗？”</p>
+<p>有些不妙，好像自己全部的细节都被看透了，果然我不适合和这种人做生意。</p>
+<p>“我不知道，或许我的理念让他很认可什么的？再说了，我之前从没觉得这是口头禅，我不过是单纯的觉得用价值衡量利弊会比较方便罢了。”我内心感到一丝不安。</p>
+<p>“……那咱们话先说回来，你不觉得已经被人忘记的东西，还能发挥一定的价值，这件事很有趣吗？”</p>
+<p>“像这种没有价值的话题，我们还是赶快跳过吧，这边还有一大堆课题等着去研究。”</p>
+<p>“说得好，我也不喜欢没有价值的东西，这样的东西要是在我手里，我想我一定会毫不犹豫的把它抛弃吧？”</p>
+<p>我对上了他的视线——那双眸子里只能看出威胁。</p>
+<i><p>“玛丽有只小羊羔～小羊羔……”</p></i>
+<i><p>你说……</p></i>
+<i><p>如果一个杀手找到了信仰，无法再执行任务，他作为杀手的意义是否就此消散？</p></i>
+<i><p>如果有人摧毁了一个小女孩的家，让她独自在世间挣扎以证明自己的价值，那他的道德是否就此泯灭？</p></i>
+<i><p>如果天空依旧明亮，却有人说夜幕已降，他的言辞是否就此失去了分量？</p></i>
+<i><p>刚才，似乎有一个毫无价值的人和我说了什么，但现在，他已经不在了——他失去了存在的价值。</p></i>
+<i><p>应该是叫失序症吧……那场大火之后，我获得了那样的能力。</p></i>
+<i><p>于是我否定了他的价值，在这片黑暗之中。</p></i>
+<i><p>如果可以，我宁愿不曾拥有这份力量。那样，我就能在阳光下，依靠家人的庇护，一步步攀登，而不是成为一只躲藏在暗处的臭虫。</p></i>
+<i><p>说起来，感觉嗓子好干啊，歌声都不好听了。</p></i>
+<i><p>水……水在哪里？</p></i>
+<i><p>嗯？</p></i>
+<i><p>我的手中紧握着什么。</p></i>
+<i><p>摸上去软软的、很轻，像线团一样，好像......还有点香？</p></i>
+<i><p>好像听说过这个，是一种食物来着？</p></i>
+<i><p>我小心翼翼地舔了一口。</p></i>
+<i><p>好甜。</p></i>
+<i><p>但为何，泪水却悄然滑落？</p></i>
+</div>
+</div>
+</div>
+<div class="footer">
+©失序症工作室出品｜盖恩·卢卡斯</a>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabContents = document.querySelectorAll('.tab-content');
+tabButtons.forEach(button => {
+button.addEventListener('click', () => {
+const tabId = button.dataset.tab;
+tabButtons.forEach(btn => btn.classList.remove('active'));
+tabContents.forEach(content => content.classList.remove('active'));
+button.classList.add('active');
+document.getElementById(tabId).classList.add('active');
+});
+});
+});
+</script>
+</body>
